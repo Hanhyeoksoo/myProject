@@ -15,7 +15,7 @@ create table board_reply(
 	bor_content varchar2(3000) not null,
 	bor_date blob not null	
 );
-
+  
 create table board_fav(
 	bof_num number not null primary key,
 	boa_num number not null foreign key,
