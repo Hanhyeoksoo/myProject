@@ -9,7 +9,7 @@ create table board(
 	boa_view number not null	
 );
 
-create table board_reply(
+create table board_reply( 
 	bor_num number not null primary key,
 	boa_num number not null foreign key,
 	bor_content varchar2(3000) not null,
