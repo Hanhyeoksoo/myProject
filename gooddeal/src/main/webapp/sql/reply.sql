@@ -4,8 +4,8 @@ create table product_reply(
 	mem_num number not null,
 	reply_content varchar2(600) not null, 
 	reply_date date default sysdate
-   
+   --fk pronum(product테이블), memnum(member테이블)
 )
 
 alter table product_reply
-add FOREIGN key (mem_num) REFERENCES product(mem_num)
+add FOREIGN key (pro_num) REFERENCES product(pro_num);
