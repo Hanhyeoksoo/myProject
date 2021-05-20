@@ -18,4 +18,4 @@ CREATE TABLE event_result(
  constraint event_result_fk foreign key (mem_num) references event (eve_num)
 );
 
-CREATE SEQUENCE event_seq;
+CREATE SEQUENCE event_seq; 
