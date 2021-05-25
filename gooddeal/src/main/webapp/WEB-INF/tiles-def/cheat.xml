@@ -5,20 +5,15 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	<definition name="manualToolList" extends="main">
+	<definition name="cheatList" extends="main">
+		<put-attribute name="title" value="신고게시판 목록"/>
+		<put-attribute name="body" value="/WEB-INF/views/cheat/cheatList.jsp"/>
+	</definition>
+	<definition name="cheatRegister" extends="main">
+		<put-attribute name="title" value="신고게시판 목록"/>
+		<put-attribute name="body" value="/WEB-INF/views/cheat/cheatRegister.jsp"/>
 	</definition>
 </tiles-definitions>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
