@@ -11,6 +11,7 @@ create table member_detail(
 	mem_password varchar2(20) not null,
 	mem_name varchar2(15) not null,
 	mem_propick blob,
+	mem_filename varchar2(300),
 	mem_credit number default 5 not null,
 	mem_phone varchar2(13) not null,
 	mem_email varchar2(50) not null,
