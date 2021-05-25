@@ -5,7 +5,13 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	<definition name="newsList" extends="main">
+	<definition name="productList" extends="main">
+		<put-attribute name="title" value="상품 목록"/>
+		<put-attribute name="body" value="/WEB-INF/views/product/productList.jsp"/>
+	</definition>
+	<definition name="productWrite" extends="main">
+		<put-attribute name="title" value="상품 등록"/>
+		<put-attribute name="body" value="/WEB-INF/views/product/productWrite.jsp"/>
 	</definition>
 </tiles-definitions>
 
