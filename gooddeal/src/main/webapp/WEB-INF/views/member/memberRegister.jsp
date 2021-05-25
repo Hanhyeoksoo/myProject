@@ -65,7 +65,7 @@
 				return false;
 			}
 			if($('mem_password').val().result == 'notMatchPattern'){
-				$('#message_password').css('color','red').text('특수문자(?~!@#$%^&*)와 숫자,영문대소문자만 사용해 6자 이상 15자 이하 비밀번호 생성');
+				$('#message_password').css('color','red').text('특수문자(!@#$%),숫자,영문대소문자 혼용 6자 이상 15자 이하 비밀번호 생성');
 				$('mem_password2').val('');
 				$('mem_password').val('').focus();
 				return false;

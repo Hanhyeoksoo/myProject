@@ -10,10 +10,12 @@
 			<li>
 				<label for="mem_id">아이디</label>
 				<form:input path="mem_id"/>
+				<form:errors path="mem_id" cssClass="error-color"/>
 			</li>
 			<li>
 				<label for="mem_password">비밀번호</label>
 				<form:password path="mem_password"/>
+				<form:errors path="mem_password" cssClass="error-color"/>
 			</li>
 		</ul>
 		<div class="align-center">

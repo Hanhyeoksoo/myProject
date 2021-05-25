@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
@@ -155,5 +156,110 @@ public class MemberController {
 		
 		
 		return "redirect:/main/main.do";
+	}
+	
+	
+
+	//=====회원 상세 정보=====//
+	@RequestMapping("/member/myPage.do")
+	public String process(HttpSession session, Model model) {
+		Integer user_num = (Integer)session.getAttribute("user_num");
+		
+		MemberVO member = memberService.selectMember(user_num);
+		
+		model.addAttribute("member", member);
+				
+		return "memberView";
+	}
+	//이미지 출력
+	@RequestMapping("/member/imageView.do")
+	public ModelAndView viewImage(@RequestParam int mem_num) {
+		MemberVO member = memberService.selectMember(mem_num);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("imageView");
+		mav.addObject("imageFile",member.getMem_propick());
+		mav.addObject("filename",member.getMem_filename());
+	
+		return mav;
+	}
+	
+	
+	//=====회원 정보 수정=====//
+	//수정 폼
+	@RequestMapping(value="/member/update.do",method=RequestMethod.GET)
+	public String formUpdate(HttpSession session, Model model) {
+		Integer user_num = (Integer)session.getAttribute("user_num");
+		
+		MemberVO memberVO = memberService.selectMember(user_num);
+		
+		model.addAttribute("memberVO", memberVO);
+		
+		return "memberModify";
+	}
+	//수정폼에서 전송된 데이터 처리
+	@RequestMapping(value="/member/update.do",method=RequestMethod.POST)
+	public String submitUpdate(@Valid MemberVO memberVO,
+							   BindingResult result,
+							   HttpSession session) {
+		
+		if(log.isDebugEnabled()) {
+			log.debug("<<회원 정보 수정>> : " + memberVO);
+		}
+		
+		//유효성 체크 결과 오류가 있으면 폼 호출
+		if(result.hasErrors()) {
+			return "memberModify";
+		}
+		
+		//회원 번호 구하기
+		Integer user_num = (Integer)session.getAttribute("user_num");
+		memberVO.setMem_num(user_num);
+		
+		//회원 정보 수정
+		memberService.updateMember(memberVO);
+		
+		return "redirect:/member/myPage.do";
+	}
+	
+	
+
+	//=====비밀번호 수정=====//
+	//비밀번호 수정 폼
+	@RequestMapping(value="/member/changePassword.do",method=RequestMethod.GET)
+	public String formChangePassword() {
+		return "memberChangePassword";
+	}
+	
+	//비밀번호 수정 폼에서 전송된 데이터 처리
+	@RequestMapping(value="/member/changePassword.do",method=RequestMethod.POST)
+	public String submitChangePassword(@Valid MemberVO memberVO,
+									   BindingResult result,
+									   HttpSession session) {
+		if(log.isDebugEnabled()) {
+			log.debug("<<비밀번호 변경 처리>> : " + memberVO);
+		}
+		
+		//유효성 체크 결과 오류가 있으면 폼 호출
+		//now_passwd와 mem_password만 체크
+		if(result.hasFieldErrors("now_password") || result.hasFieldErrors("mem_password")) {
+			return formChangePassword();
+		}
+		
+		//비밀번호 일치 여부 체크
+		Integer user_num = (Integer)session.getAttribute("user_num");
+		MemberVO member = memberService.selectMember(user_num);
+		//폼에서 전송한 현재 비밀번호와 DB에서 받아온 현재 비밀번호 일치 여부 체크
+		if(!member.getMem_password().equals(memberVO.getNow_password())) {
+			//인증 실패시
+			result.rejectValue("now_password", "invalidPassword");
+			return formChangePassword();
+		}
+		
+		//비밀번호 변경
+		memberVO.setMem_num(user_num);
+		memberService.updatePassword(memberVO);
+		
+		return "redirect:/member/myPage.do";
 	}
 }

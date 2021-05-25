@@ -21,9 +21,9 @@ public class MemberVO {
 	private String mem_name;
 	private byte[] mem_propick;
 	private String mem_filename;
-	@Pattern(regexp="^[?~!@#$%^&*A-Za-z0-9]{6,15}$")
+	@Pattern(regexp="^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%])[A-Za-z0-9!@#$%]{6,15}$")
 	private String mem_password;
-	@Pattern(regexp="^[?~!@#$%^&*A-Za-z0-9]{6,15}$")
+	@Pattern(regexp="^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%])[A-Za-z0-9!@#$%]{6,15}$")
 	private String mem_password2;
 	@NotEmpty
 	private String mem_phone;
@@ -37,10 +37,9 @@ public class MemberVO {
 	@NotEmpty
 	private String mem_address2;
 	private Date mem_date;
-
-	private Date modify_date;
-	@Size(min=4,max=12)
-	private String modify_passwd;
+	
+	@Pattern(regexp="^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%])[A-Za-z0-9!@#$%]{6,15}$")
+	private String now_password;
 
 
 	
@@ -210,24 +209,13 @@ public class MemberVO {
 		this.mem_date = mem_date;
 	}
 
-
-	public Date getModify_date() {
-		return modify_date;
+	public String getNow_password() {
+		return now_password;
 	}
 
 
-	public void setModify_date(Date modify_date) {
-		this.modify_date = modify_date;
-	}
-
-
-	public String getModify_passwd() {
-		return modify_passwd;
-	}
-
-
-	public void setModify_passwd(String modify_passwd) {
-		this.modify_passwd = modify_passwd;
+	public void setNow_password(String modify_passwd) {
+		this.now_password = now_password;
 	}
 
 
@@ -237,7 +225,7 @@ public class MemberVO {
 				+ mem_now + ", mem_name=" + mem_name + ", mem_password=" + mem_password + ", mem_password2="
 				+ mem_password2 + ", mem_phone=" + mem_phone + ", mem_email=" + mem_email + ", mem_zipcode="
 				+ mem_zipcode + ", mem_address1=" + mem_address1 + ", mem_address2=" + mem_address2 + ", mem_date="
-				+ mem_date + ", modify_date=" + modify_date + ", modify_passwd=" + modify_passwd + "]";
+				+ mem_date + ", modify_date=" + ", modify_passwd=" + now_password + "]";
 	}
 
 
