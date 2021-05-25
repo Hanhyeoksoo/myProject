@@ -14,14 +14,25 @@ public interface ProductMapper {
 	//중고 장터
 	
 	//상품 등록
-	@Insert("INSERT INTO product (pro_num,mem_num,pro_title,pro_tag,pro_price,pro_content,pro_status,pro_buy) VALUES (#{pro_num},#{mem_num},#{pro_title},#{pro_tag},#{pro_price},#{pro_content},#{pro_status},#{pro_buy})")
+	@Insert("INSERT INTO product (pro_num,mem_num,pro_title,pro_tag,pro_price,pro_content,pro_status,pro_date,pro_buy) VALUES (product_seq.nextval,#{mem_num},#{pro_title},#{pro_tag},#{pro_price},#{pro_content},#{pro_status},SYSDATE,#{pro_buy})")
 	public void insertProduct(ProductVO product);
 	
 	//총 레코드 수
-		public int selectRowCount();
+	//public int selectRowCount();
 	
 	//상품 목록
 	public List<ProductVO> selectList(Map<String,Object> map);
+	
+	//상품 상세 페이지
+	@Select("SELECT * FROM product p JOIN memeber m ON p.pro_num=m.mem_num WHERE p.mem_num=#{mem_num}")
+	public ProductVO selectProduct(Integer pro_num);
+	
+	//상품 수정
+	public void updateProduct(ProductVO product);
+	
+	//상품 삭제
+	@Delete("DELETE FROM product WHERE pro_num=#{pro_num}")
+	public void deleteProduct(Integer pro_num);
 	
 	
 }

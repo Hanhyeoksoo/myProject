@@ -24,22 +24,25 @@
 			</li>
 			<li>
 				<label for="pro_content">상품 내용</label>
-				<form:textarea path="pro_content"/>
+				<form:textarea path="pro_content" cols="50" rows="5"/>
 				<form:errors path="pro_content" cssClass="error-color"/>
 			</li>
-			<li>
+			<li>	
 				<label for="pro_status">상품 상태</label>
-				<form:input path="pro_status"/>
+				<form:radiobutton path="pro_status" value="1" />새제품
+				<form:radiobutton path="pro_status" value="2" />중고
 				<form:errors path="pro_status" cssClass="error-color"/>
 			</li>
-			<li>
+			<li>	
 				<label for="pro_buy">판매 상태</label>
-				<form:input path="pro_buy"/>
+				<form:radiobutton path="pro_buy" value="1" />판매중
+				<form:radiobutton path="pro_buy" value="2" />판매완료
+				<form:radiobutton path="pro_buy" value="3" />판매중지
 				<form:errors path="pro_buy" cssClass="error-color"/>
 			</li>
 		</ul>
 		<div class="align-center">
-			<input type="submit" value="전송">
+			<input type="submit" value="상품 등록">
 			<input type="button" value="목록"
 			               onclick="location.href='list.do'">
 		</div>

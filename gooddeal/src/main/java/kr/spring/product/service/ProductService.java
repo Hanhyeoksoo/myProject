@@ -18,18 +18,27 @@ public class ProductService {
 	private ProductMapper productMapper;
 		
 	//상품 등록
-	public void insertBoard(ProductVO product) {
+	public void insertProduct(ProductVO product) {
 		productMapper.insertProduct(product);
 	}
 	
 	//총 레코드 수
-		public int selectRowCount() {
-			return productMapper.selectRowCount();
-		}
+//		public int selectRowCount() {
+//			return productMapper.selectRowCount();
+//		}
 	
 	//상품 목록
 	public List<ProductVO> selectList(Map<String,Object> map){
 		return productMapper.selectList(map);
+	}
+	
+	//상품 수정
+	public void updateProduct(ProductVO product) {
+		productMapper.updateProduct(product);
+	}
+	//상품 삭제
+	public void deleteProduct(Integer pro_num) {
+		productMapper.deleteProduct(pro_num);
 	}
 		
 }

@@ -44,14 +44,25 @@ public class ProductController {
 	}
 	
 	//전송된 데이터 처리
-//	@RequestMapping(value="/product/write.do",method=RequestMethod.POST)
-//	public String submit(@Valid ProductVO productVO,
-//			             BindingResult result,
-//			             HttpServletRequest request,
-//			             HttpSession session) {
-//		
-//		return "redirect:/product/list.do";
-//	}
+	@RequestMapping(value="/product/write.do",method=RequestMethod.POST)
+	public String submit(@Valid ProductVO productVO,
+			             BindingResult result,
+			             HttpServletRequest request,
+			             HttpSession session) {
+		
+		//유효성 체크 결과 오류가 있으면 폼 호출
+				if(result.hasErrors()) {
+					return "productWrite";
+				}
+				
+				//회원 번호 셋팅
+				productVO.setMem_num((Integer)session.getAttribute("user_num"));
+				//글쓰기
+    			productService.insertProduct(productVO);
+				
+				return "redirect:/product/list.do";
+		
+	}
 	
 	//===상품 목록 페이지 ===//
 	//상품 목록
@@ -60,30 +71,30 @@ public class ProductController {
 	@RequestParam(value="pageNum",defaultValue="1") int currentPage) {
 		
 		//총 레코드 수
-				/*int count = productService.selectRowCount();
+//				int count = productService.selectRowCount();
+//				
+//				if(log.isDebugEnabled()) {
+//					log.debug("<<pageNum>> : " + currentPage);
+//					log.debug("<<count>> : " + count);
+//				}
+//				
+//				//페이징 처리
+//				PagingUtil page = 
+//						new PagingUtil(currentPage,count,10,10,"list.do");
+//				
+//				List<ProductVO> list = null;
+//				if(count > 0) {
+//					Map<String,Object> map = new HashMap<String,Object>();
+//					map.put("start", page.getStartCount());
+//					map.put("end", page.getEndCount());
+//					list = productService.selectList(map);
+//				}
 				
-				if(log.isDebugEnabled()) {
-					log.debug("<<pageNum>> : " + currentPage);
-					log.debug("<<count>> : " + count);
-				}
-				
-				//페이징 처리
-				PagingUtil page = 
-						new PagingUtil(currentPage,count,10,10,"list.do");
-				
-				List<ProductVO> list = null;
-				if(count > 0) {
-					Map<String,Object> map = new HashMap<String,Object>();
-					map.put("start", page.getStartCount());
-					map.put("end", page.getEndCount());
-					list = productService.selectList(map);
-				}
-				*/
 				ModelAndView mav = new ModelAndView();
 				mav.setViewName("productList");
-				//mav.addObject("count", count);
-				//mav.addObject("list",list);
-				//mav.addObject("pagingHtml",page.getPagingHtml());
+//				mav.addObject("count", count);
+//				mav.addObject("list",list);
+//				mav.addObject("pagingHtml",page.getPagingHtml());
 				
 				return mav;
 	}
