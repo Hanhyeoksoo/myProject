@@ -1,7 +1,7 @@
 create table member(
 	mem_num number not null,
 	mem_id varchar2(15) not null,
-	mem_now varchar2(1) not null,
+	mem_now varchar2(1) default 2 not null,
     constraint member_pk primary key(mem_num)
 );
 

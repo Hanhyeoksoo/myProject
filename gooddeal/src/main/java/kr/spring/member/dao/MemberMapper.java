@@ -9,7 +9,7 @@ import kr.spring.member.vo.MemberVO;
 
 public interface MemberMapper {
 	//회원관리
-	//회원 번호 구하기
+	//회원번호 구하기
 	@Select("SELECT member_seq.nextval FROM dual")
 	public int selectMem_num();
 	//회원 등록

@@ -12,7 +12,7 @@
 	<definition name="memberLogin" extends="main">
 		<put-attribute name="title" value="회원 로그인"/>
 		<put-attribute name="body" value="/WEB-INF/views/member/memberLogin.jsp"/>
-	</definition>	
+	</definition>
 </tiles-definitions>
 
 

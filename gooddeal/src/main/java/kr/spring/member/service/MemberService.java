@@ -45,4 +45,5 @@ public class MemberService {
 		memberMapper.deleteMember(mem_num);
 		memberMapper.deleteMember_detail(mem_num);
 	}
+	
 }

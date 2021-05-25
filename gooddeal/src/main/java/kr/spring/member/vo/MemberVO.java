@@ -43,6 +43,7 @@ public class MemberVO {
 	private String modify_passwd;
 
 
+	
 	//업로드 파일 처리
 	public void setUpload(MultipartFile upload)throws IOException{
 		//MultipartFile -> byte[] 변환

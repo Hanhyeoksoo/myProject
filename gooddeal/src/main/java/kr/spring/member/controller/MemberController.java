@@ -144,6 +144,7 @@ public class MemberController {
 			return formLogin();
 		}
 		
+		
 	}
 	
 	//=====회원 로그아웃=====//
@@ -151,6 +152,7 @@ public class MemberController {
 	public String processLogout(HttpSession session) {
 		//로그아웃
 		session.invalidate();
+		
 		
 		return "redirect:/main/main.do";
 	}
