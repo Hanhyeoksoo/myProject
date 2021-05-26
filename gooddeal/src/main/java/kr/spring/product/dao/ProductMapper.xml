@@ -21,6 +21,7 @@
 		        rownum rnum
 		      FROM(SELECT
 		      		  p.pro_num,
+		      		  p.mem_num,
 		              p.pro_title,
 		              p.pro_date
 		           FROM product p
