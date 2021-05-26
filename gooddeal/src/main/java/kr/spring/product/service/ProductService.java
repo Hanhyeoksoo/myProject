@@ -23,13 +23,18 @@ public class ProductService {
 	}
 	
 	//총 레코드 수
-//		public int selectRowCount() {
-//			return productMapper.selectRowCount();
-//		}
+		public int selectRowCount() {
+			return productMapper.selectRowCount();
+		}
 	
 	//상품 목록
 	public List<ProductVO> selectList(Map<String,Object> map){
 		return productMapper.selectList(map);
+	}
+	
+	//상품 상세
+	public ProductVO selectProduct(Integer pro_num) {
+		return productMapper.selectProduct(pro_num);
 	}
 	
 	//상품 수정

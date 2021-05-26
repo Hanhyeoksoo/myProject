@@ -13,6 +13,10 @@
 		<put-attribute name="title" value="상품 등록"/>
 		<put-attribute name="body" value="/WEB-INF/views/product/productWrite.jsp"/>
 	</definition>
+	<definition name="productView" extends="main">
+		<put-attribute name="title" value="상품 상세"/>
+		<put-attribute name="body" value="/WEB-INF/views/product/productView.jsp"/>
+	</definition>
 </tiles-definitions>
 
 

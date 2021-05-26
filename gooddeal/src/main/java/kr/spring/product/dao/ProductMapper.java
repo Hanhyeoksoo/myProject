@@ -18,13 +18,13 @@ public interface ProductMapper {
 	public void insertProduct(ProductVO product);
 	
 	//총 레코드 수
-	//public int selectRowCount();
+	public int selectRowCount();
 	
 	//상품 목록
 	public List<ProductVO> selectList(Map<String,Object> map);
 	
 	//상품 상세 페이지
-	@Select("SELECT * FROM product p JOIN memeber m ON p.pro_num=m.mem_num WHERE p.mem_num=#{mem_num}")
+	@Select("SELECT * FROM product p JOIN member m ON p.mem_num=m.mem_num WHERE pro_num=#{pro_num}")
 	public ProductVO selectProduct(Integer pro_num);
 	
 	//상품 수정
