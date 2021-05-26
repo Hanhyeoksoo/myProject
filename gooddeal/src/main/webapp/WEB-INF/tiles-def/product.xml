@@ -17,6 +17,10 @@
 		<put-attribute name="title" value="상품 상세"/>
 		<put-attribute name="body" value="/WEB-INF/views/product/productView.jsp"/>
 	</definition>
+	<definition name="productModify" extends="main">
+		<put-attribute name="title" value="상품 수정"/>
+		<put-attribute name="body" value="/WEB-INF/views/product/productModify.jsp"/>
+	</definition>
 </tiles-definitions>
 
 

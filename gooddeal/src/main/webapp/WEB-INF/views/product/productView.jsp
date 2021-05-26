@@ -19,7 +19,12 @@
 	<h2>${product.pro_title}</h2>
 	<ul>
 		<li>작성자번호 : ${product.mem_num}</li>
+		<li>연관 태그 : ${product.pro_tag}</li>
+		<li>상품 금액 : ${product.pro_price}</li>
 		<!-- 사진 넣을 자리 -->
+		<li>내용 : ${product.pro_content}</li>
+		<li>상품 상태 : ${product.pro_status}</li>
+		<li>판매 상태 : ${product.pro_buy}</li>
 		<li>작성일 : ${product.pro_date}</li>
 	</ul>
 	<hr size="1" width="100%">

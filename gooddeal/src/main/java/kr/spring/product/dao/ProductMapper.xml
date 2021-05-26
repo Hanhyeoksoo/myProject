@@ -32,18 +32,21 @@
     	]]>
 	</select>
 	<!-- 글 수정 -->
-	<!-- <update id="updateProduct" parameterType="productVO">
+	 <update id="updateProduct" parameterType="productVO">
 		UPDATE product SET
-			<if test="filename != ''">
+			<!-- <if test="filename != ''">
 			uploadfile=#{uploadfile},
 			filename=#{filename},
-			</if>	
-			title=#{title},
-			content=#{content},
-			ip=#{ip},
-			modify_date=SYSDATE
-		WHERE board_num=#{board_num}
-	</update>  -->
+			</if>  -->	
+			pro_title=#{pro_title},
+			pro_tag=#{pro_tag},
+			pro_price=#{pro_price},
+			pro_content=#{pro_content},
+			pro_status=#{pro_status},
+			pro_buy=#{pro_buy}
+			<!-- modify_date=SYSDATE  -->
+		WHERE pro_num=#{pro_num}
+	</update>  
 </mapper>
 
 

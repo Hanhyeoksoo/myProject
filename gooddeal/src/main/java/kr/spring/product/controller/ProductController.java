@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -108,17 +109,44 @@ public class ProductController {
 			}
 			
 			ProductVO product = productService.selectProduct(pro_num);
-			//HTML 태그 불허
-			//board.setTitle(StringUtil.useNoHtml(board.getTitle()));
-			//HTML 태그 불허 및 줄바꿈 처리
-			//board.setContent(StringUtil.useBrNoHtml(board.getContent()));
 			
 			return new ModelAndView("productView","product",product);
 			
 		}
 	
-	
-	
+		//=====상품 수정======//
+		//수정 폼
+		@RequestMapping(value="/product/update.do",method=RequestMethod.GET)
+		public String formUpdate(@RequestParam int pro_num,Model model) {
+			ProductVO productVO = productService.selectProduct(pro_num);
+			model.addAttribute("productVO", productVO);
+			
+			return "productModify";
+		}
+		//수정 폼에서 전송된 데이터 처리
+		@RequestMapping(value="/product/update.do",method=RequestMethod.POST)
+		public String submitUpdate(@Valid ProductVO productVO,
+				                   BindingResult result,
+				                   HttpServletRequest request) {
+			//유효성 체크 결과 오류가 있으면 폼 호출
+			if(result.hasErrors()) {
+				return "productModify";
+			}
+			
+			//글 수정
+			productService.updateProduct(productVO);
+			
+			return "redirect:/product/list.do";
+		}
+		
+		//======상품 삭제========//
+		@RequestMapping("/product/delete.do")
+		public String submitDelete(@RequestParam int pro_num) {
+			//상품 삭제
+			productService.deleteProduct(pro_num);
+			
+			return "redirect:/product/list.do";
+		}
 	
 	
 	
