@@ -202,5 +202,8 @@ li.paging-current{
 	padding:10px;
 }
 
-
+<!-- 이벤트 페이지 레이아웃 -->
+.nav_item{
+	list-style:none;
+}
 
