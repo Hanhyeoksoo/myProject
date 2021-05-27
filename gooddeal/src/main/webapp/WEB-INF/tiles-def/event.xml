@@ -5,20 +5,15 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	<definition name="positionList" extends="main">
+	<definition name="eventList" extends="main">
+		<put-attribute name="title" value="이벤트 게시판 목록"/>
+		<put-attribute name="body" value="/WEB-INF/views/event/eventList.jsp"/>
+	</definition>
+	<definition name="eventRegister" extends="main">
+		<put-attribute name="title" value="이벤트 게시판 목록"/>
+		<put-attribute name="body" value="/WEB-INF/views/event/eventRegister.jsp"/>
 	</definition>
 </tiles-definitions>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
