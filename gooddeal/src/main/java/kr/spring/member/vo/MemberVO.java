@@ -58,6 +58,7 @@ public class MemberVO {
 		}
 		return false;
 	}
+	
 
 
 	public int getMem_num() {
@@ -214,7 +215,7 @@ public class MemberVO {
 	}
 
 
-	public void setNow_password(String modify_passwd) {
+	public void setNow_password(String now_password) {
 		this.now_password = now_password;
 	}
 

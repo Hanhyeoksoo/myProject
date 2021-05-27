@@ -30,7 +30,7 @@ public interface MemberMapper {
 	@Update("UPDATE member_detail SET mem_password=#{mem_password} WHERE mem_num=#{mem_num}")
 	public void updatePassword(MemberVO member);
 	//회원 탈퇴
-	@Update("UPDATE member SET now=1 WHERE mem_num=#{mem_num}")
+	@Update("UPDATE member SET mem_now=1 WHERE mem_num=#{mem_num}")
 	public void deleteMember(Integer mem_num);
 	@Delete("DELETE FROM member_detail WHERE mem_num=#{mem_num}")
 	public void deleteMember_detail(Integer mem_num);

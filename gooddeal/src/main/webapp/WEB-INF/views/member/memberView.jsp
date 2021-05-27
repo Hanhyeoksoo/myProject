@@ -20,7 +20,7 @@
 					    <c:if test="${!empty member.mem_filename}">
 						<li>
 							<div class="align-center">
-									<img src="imageView.do?mem_num=${member.mem_num}" style="max-width:500px">
+									<img src="imageView.do?mem_num=${member.mem_num}" style="max-width:40px">
 								</div>
 						</li>
 						</c:if>		
