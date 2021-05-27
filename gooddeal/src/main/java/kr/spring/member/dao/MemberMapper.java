@@ -34,4 +34,9 @@ public interface MemberMapper {
 	public void deleteMember(Integer mem_num);
 	@Delete("DELETE FROM member_detail WHERE mem_num=#{mem_num}")
 	public void deleteMember_detail(Integer mem_num);
+	
+	
+	//판매내역
+	//@Select("SELECT * FROM product WHERE mem_num=#{mem_nem}")
+	//public void selectproductMember(ProductVO product)
 }
