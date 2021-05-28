@@ -212,18 +212,17 @@ li.paging-current{
 	padding-left:40px;
 	overflow:hidden;
 }
-.list{
+#wrap .list{
 	margin:5px;
 	padding:5px;
 	width:240px;
 	height:150px;
 	float:left;
 }
-.list img{
+#wrap .list img{
 	width:100%;
 	height:100px;
 }
-.list 
 a:link {
 	text-decoration: none;
 }
