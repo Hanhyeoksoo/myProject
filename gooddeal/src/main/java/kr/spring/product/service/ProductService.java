@@ -11,7 +11,7 @@ import kr.spring.product.dao.ProductMapper;
 import kr.spring.product.vo.ProductVO;
 
 
-@Service("boardService")
+@Service("productService")
 public class ProductService {
 	//의존 관계 설정
 	@Resource

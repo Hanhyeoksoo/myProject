@@ -7,8 +7,6 @@ import javax.validation.constraints.NotEmpty;
 
 import org.springframework.web.multipart.MultipartFile;
 
-
-
 public class ProductVO {
 	private int pro_num;
 	private int mem_num;
