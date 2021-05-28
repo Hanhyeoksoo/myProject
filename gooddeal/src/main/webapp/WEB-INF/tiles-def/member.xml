@@ -29,9 +29,9 @@
 		<put-attribute name="title" value="회원 탈퇴"/>
 		<put-attribute name="body" value="/WEB-INF/views/member/memberDelete.jsp"/>
 	</definition>
-	<definition name="mySell" extends="main">
+	<definition name="memberSellerView" extends="main">
 		<put-attribute name="title" value="판매내역"/>
-		<put-attribute name="body" value="/WEB-INF/views/member/mySell.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/memberSellerView.jsp"/>
 	</definition>
 </tiles-definitions>
 

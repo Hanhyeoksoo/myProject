@@ -49,15 +49,4 @@ public class MemberService {
 		memberMapper.deleteMember_detail(mem_num);
 	}
 	
-	
-	//로우카운트
-	public int selectRowCount() {
-		return memberMapper.selectRowCount();
-	}
-	//판매 글 목록
-	public List<MemberVO> selectList(Map<String,Object> map){
-		return memberMapper.selectList(map);
-	}
-	
-
 }

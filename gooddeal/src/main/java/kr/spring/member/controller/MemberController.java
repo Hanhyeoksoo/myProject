@@ -22,35 +22,39 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
+import kr.spring.product.service.ProductService;
+import kr.spring.product.vo.ProductVO;
 import kr.spring.util.AuthCheckException;
 import kr.spring.util.PagingUtil;
 
 @Controller
 public class MemberController {
 	private Logger log = Logger.getLogger(this.getClass());
-	
+
 	//의존 관계 설정
 	@Resource
 	private MemberService memberService;
-	
+	@Resource
+	private ProductService productService;
+
 	//자바빈(VO) 초기화
 	@ModelAttribute
 	public MemberVO initCommand() {
 		return new MemberVO();
 	}
-	
+
 	//=======회원가입=======//
 	//아이디 중복 체크
 	@RequestMapping("/member/confirmId.do")
 	@ResponseBody
 	public Map<String,String> process(@RequestParam("mem_id") String mem_id){
-		
+
 		if(log.isDebugEnabled()) {
 			log.debug("<<mem_id>> : " + mem_id);
 		}
-		
+
 		Map<String,String> map = new HashMap<String,String>();
-		
+
 		MemberVO member = memberService.selectCheckMember(mem_id);
 		if(member!=null) {
 			//아이디 중복
@@ -64,59 +68,59 @@ public class MemberController {
 				map.put("result", "idNotFound");
 			}
 		}
-		
+
 		return map;
 	}
 	//회원 등록 폼 호출
 	@RequestMapping(value="/member/registerUser.do",method=RequestMethod.GET)
-	
+
 	public String form() {
-			// 뷰 이름(타일스 식별자)
+		// 뷰 이름(타일스 식별자)
 		return "memberRegister";
 	}
 	//회원 등록 데이터 전송
 	@RequestMapping(value="/member/registerUser.do",method=RequestMethod.POST)
 	public String submit(@Valid MemberVO memberVO,
-						 BindingResult result) {
-		
+			BindingResult result) {
+
 		if(log.isDebugEnabled()) {
 			log.debug("<<회원 가입>> : " + memberVO);
 		}
-		
+
 		//유효성 체크 결과 오류가 있으면 폼을 호출
 		if(result.hasErrors()) {
 			return form();
 		}
-		
+
 		//회원 가입
 		memberService.insertMember(memberVO);
-		
+
 		return "redirect:/main/main.do";
 	}
-	
+
 	//========회원 로그인========//
 	//로그인 폼 호출
 	@RequestMapping(value="/member/login.do",method=RequestMethod.GET)
 	public String formLogin() {
 		return "memberLogin";
 	}
-	
+
 	//로그인 폼에 전송된 데이터 처리
 	@RequestMapping(value="/member/login.do",method=RequestMethod.POST)
 	public String submitLogin(@Valid MemberVO memberVO,
-							  BindingResult result,
-							  HttpSession session) {
-		
+			BindingResult result,
+			HttpSession session) {
+
 		if(log.isDebugEnabled()) {
 			log.debug("<<회원 로그인>> : " + memberVO);
 		}
-		
+
 		//유효성 체크 결과 오류가 있으면 폼 호출
 		//id와 password 필드만 체크
 		if(result.hasFieldErrors("mem_id") || result.hasFieldErrors("mem_password")) {
 			return formLogin();
 		}
-		
+
 		//로그인 체크(입력한 id와 비밀번호가 DB에 저장된 id와 비밀번호가 일치하는지 여부)
 		try {
 			MemberVO member = memberService.selectCheckMember(memberVO.getMem_id());
@@ -124,7 +128,7 @@ public class MemberController {
 				log.debug("<<DB 테이터>> : " + member);
 			}
 			boolean check = false;
-			
+
 			if(member!=null) {
 				//비밀번호 일치 여부 체크
 				check = member.isCheckedPassword(memberVO.getMem_password());
@@ -134,9 +138,9 @@ public class MemberController {
 				session.setAttribute("user_num", member.getMem_num());
 				//회원 아이디 저장
 				session.setAttribute("user_id", member.getMem_id());
-				
+
 				return "redirect:/main/main.do";
-				
+
 			}else {//인증 실패
 				throw new AuthCheckException();
 			}
@@ -146,85 +150,82 @@ public class MemberController {
 			//인증 실패로 로그인 폼 호출
 			return formLogin();
 		}
-		
-		
+
+
 	}
-	
+
 	//=====회원 로그아웃=====//
 	@RequestMapping("/member/logout.do")
 	public String processLogout(HttpSession session) {
 		//로그아웃
 		session.invalidate();
-		
-		
+
+
 		return "redirect:/main/main.do";
 	}
-	
-	
+
+
 
 	//=====회원 상세 정보=====//
 	@RequestMapping("/member/myPage.do")
 	public String process(HttpSession session, Model model) {
 		Integer user_num = (Integer)session.getAttribute("user_num");
-		
 		MemberVO member = memberService.selectMember(user_num);
-		
 		model.addAttribute("member", member);
-				
 		return "memberView";
 	}
 	//이미지 출력
 	@RequestMapping("/member/imageView.do")
 	public ModelAndView viewImage(@RequestParam int mem_num) {
 		MemberVO member = memberService.selectMember(mem_num);
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView");
 		mav.addObject("imageFile",member.getMem_propick());
 		mav.addObject("filename",member.getMem_filename());
-	
+
 		return mav;
 	}
-	
-	
+
+
 	//=====회원 정보 수정=====//
 	//수정 폼
 	@RequestMapping(value="/member/update.do",method=RequestMethod.GET)
 	public String formUpdate(HttpSession session, Model model) {
 		Integer user_num = (Integer)session.getAttribute("user_num");
-		
+
 		MemberVO memberVO = memberService.selectMember(user_num);
-		
+
 		model.addAttribute("memberVO", memberVO);
-		
+
 		return "memberModify";
 	}
 	//수정폼에서 전송된 데이터 처리
 	@RequestMapping(value="/member/update.do",method=RequestMethod.POST)
 	public String submitUpdate(@Valid MemberVO memberVO,
-							   BindingResult result,
-							   HttpSession session) {
-		
+			BindingResult result,
+			HttpSession session) {
+
 		if(log.isDebugEnabled()) {
 			log.debug("<<회원 정보 수정>> : " + memberVO);
 		}
-		
+
 		//유효성 체크 결과 오류가 있으면 폼 호출
 		if(result.hasErrors()) {
 			return "memberModify";
 		}
-		
+
 		//회원 번호 구하기
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		memberVO.setMem_num(user_num);
-		
+
 		//회원 정보 수정
 		memberService.updateMember(memberVO);
-		
+
 		return "redirect:/member/myPage.do";
 	}
-	
-	
+
+
 
 	//=====비밀번호 수정=====//
 	//비밀번호 수정 폼
@@ -232,22 +233,22 @@ public class MemberController {
 	public String formChangePassword() {
 		return "memberChangePassword";
 	}
-	
+
 	//비밀번호 수정 폼에서 전송된 데이터 처리
 	@RequestMapping(value="/member/changePassword.do",method=RequestMethod.POST)
 	public String submitChangePassword(@Valid MemberVO memberVO,
-									   BindingResult result,
-									   HttpSession session) {
+			BindingResult result,
+			HttpSession session) {
 		if(log.isDebugEnabled()) {
 			log.debug("<<비밀번호 변경 처리>> : " + memberVO);
 		}
-		
+
 		//유효성 체크 결과 오류가 있으면 폼 호출
 		//now_passwd와 mem_password만 체크
 		if(result.hasFieldErrors("now_password") || result.hasFieldErrors("mem_password")) {
 			return formChangePassword();
 		}
-		
+
 		//비밀번호 일치 여부 체크
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		MemberVO member = memberService.selectMember(user_num);
@@ -257,43 +258,43 @@ public class MemberController {
 			result.rejectValue("now_password", "invalidPassword");
 			return formChangePassword();
 		}
-		
+
 		//비밀번호 변경
 		memberVO.setMem_num(user_num);
 		memberService.updatePassword(memberVO);
-		
+
 		return "redirect:/member/myPage.do";
 	}
-	
-	
+
+
 	//=====회원 정보 삭제(회원 탈퇴)=====//
 	//회원 정보 삭제 폼
 	@RequestMapping(value="/member/delete.do",method=RequestMethod.GET)
 	public String formDelete() {
-		
+
 		return "memberDelete";
 	}
 	//회원 정보 삭제를 위한 데이터 처리
 	@RequestMapping(value="/member/delete.do",method=RequestMethod.POST)
 	public String submitDelete(@Valid MemberVO memberVO,
-							   BindingResult result,
-							   HttpSession session) {
+			BindingResult result,
+			HttpSession session) {
 		if(log.isDebugEnabled()) {
 			log.debug("<<회원 탈퇴>> : " + memberVO);
 		}
-		
+
 		//유효성 체크 결과 오류가 있으면 폼을 호출
 		//id와 password만 체크
 		if(result.hasFieldErrors("mem_id") || result.hasFieldErrors("mem_password")) {
 			return "memberDelete";
 		}
-		
+
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		//아이디와 비밀번호 인증
 		try {
 			MemberVO member = memberService.selectMember(user_num);
 			boolean check = false;
-			
+
 			if(member!=null && memberVO.getMem_id().equals(member.getMem_id())) {
 				//비밀번호 일치 여부 체크
 				check = member.isCheckedPassword(memberVO.getMem_password());
@@ -303,53 +304,58 @@ public class MemberController {
 				memberService.deleteMember(user_num);
 				//로그아웃
 				session.invalidate();
-				
+
 				return "redirect:/main/main.do";
 			}else {
 				//인증 실패
 				throw new AuthCheckException();
 			}
-			
+
 		}catch(AuthCheckException e) {
 			result.reject("invalidIdOrPassword");
 			return formDelete();
 		}
-		
-		
+
+
 	}
-	
-	
+
+
 	//=====판매내역 목록=====//
-	//회원 등록 폼 호출
-	//=====게시판 글 목록=====//
-		@RequestMapping("/member/mysell.do")
-		public ModelAndView process(@RequestParam(value="pageNum",
-												  defaultValue="1") int currentPage) {
-			//총 레코드 수
-			int count = memberService.selectRowCount();
-			
-			if(log.isDebugEnabled()) {
-				log.debug("<<pageNum>> : " + currentPage);
-				log.debug("<<count>> : " + count);
-			}
-			
-			//페이징 처리
-			PagingUtil page = new PagingUtil(currentPage,count,10,10,"mysell.do");
-			
-			List<MemberVO> list = null;
-			if(count > 0) {
-				Map<String,Object> map = new HashMap<String,Object>();
-				map.put("start", page.getStartCount());
-				map.put("end", page.getEndCount());
-				list = memberService.selectList(map);
-			}
-			
-			ModelAndView mav = new ModelAndView();
-			mav.setViewName("boardList");
-			mav.addObject("count", count);
-			mav.addObject("list", list);
-			mav.addObject("pagingHtml", page.getPagingHtml());
-			
-			return mav;
+	@RequestMapping("/member/mysell.do")
+	public String processSeller(@RequestParam(value="pageNum",defaultValue="1") int currentPage,
+			HttpSession session, Model model) {
+		Integer user_num = (Integer)session.getAttribute("user_num");
+
+		MemberVO member = memberService.selectMember(user_num);
+
+		model.addAttribute("member", member);
+
+		//판매정보 처리
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("user_num", user_num);
+
+		int count = productService.selectSellerRowCount(map);
+
+		if(log.isDebugEnabled()) {
+			log.debug("<<pageNum>> : " + currentPage);
+			log.debug("<<count>> : " + count);
 		}
+
+		//페이징 처리
+		PagingUtil page = new PagingUtil(currentPage,count,10,10,"list.do");
+
+		List<ProductVO> list = null;
+		if(count > 0) {
+
+			map.put("start", page.getStartCount());
+			map.put("end", page.getEndCount());
+			list = productService.selectSellerList(map);
+		}
+
+		model.addAttribute("count", count);
+		model.addAttribute("list", list);
+		model.addAttribute("pagingHtml", page.getPagingHtml());
+
+		return "memberSellerView";
+	}
 }
