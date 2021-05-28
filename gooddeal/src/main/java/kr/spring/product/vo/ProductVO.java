@@ -7,6 +7,8 @@ import javax.validation.constraints.NotEmpty;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import kr.spring.util.DurationFromNow;
+
 public class ProductVO {
 	private int pro_num;
 	private int mem_num;
@@ -16,7 +18,7 @@ public class ProductVO {
 	private int pro_price;
 	private String pro_content;
 	private int pro_status;
-	private Date pro_date;
+	private String pro_date;
 	private int pro_buy;
 	private byte[] pro_uploadfile1;
 	private String pro_filename1;
@@ -88,11 +90,12 @@ public class ProductVO {
 	public void setPro_status(int pro_status) {
 		this.pro_status = pro_status;
 	}
-	public Date getPro_date() {
+	
+	public String getPro_date() {
 		return pro_date;
 	}
-	public void setPro_date(Date pro_date) {
-		this.pro_date = pro_date;
+	public void setPro_date(String pro_date) {
+		this.pro_date = DurationFromNow.getTimeDiffLabel(pro_date);
 	}
 	public int getPro_buy() {
 		return pro_buy;

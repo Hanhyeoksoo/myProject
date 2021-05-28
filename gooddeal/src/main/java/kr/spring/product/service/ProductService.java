@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import kr.spring.product.dao.ProductMapper;
+import kr.spring.product.vo.ProductReplyVO;
 import kr.spring.product.vo.ProductVO;
 
 
@@ -54,7 +55,29 @@ public class ProductService {
 	}
 	//상품 삭제
 	public void deleteProduct(Integer pro_num) {
+		productMapper.deleteReplyByBoardNum(pro_num);
 		productMapper.deleteProduct(pro_num);
+	}
+	
+	//============댓글=========//
+	public List<ProductReplyVO> selectListReply(Map<String, Object> map) {
+		return productMapper.selectListReply(map);
+	}
+
+	public int selectRowCountReply(Map<String, Object> map) {
+		return productMapper.selectRowCountReply(map);
+	}
+
+	public void insertReply(ProductReplyVO boardReply) {
+		productMapper.insertReply(boardReply);
+	}
+
+	public void updateReply(ProductReplyVO boardReply) {
+		productMapper.updateReply(boardReply);
+	}
+
+	public void deleteReply(Integer re_num) {
+		productMapper.deleteReply(re_num);
 	}
 
 }

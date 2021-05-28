@@ -82,7 +82,7 @@ public class ProductController {
 
 		//페이징 처리
 		PagingUtil page = 
-				new PagingUtil(currentPage,count,10,10,"list.do");
+				new PagingUtil(currentPage,count,9,10,"list.do");
 
 		List<ProductVO> list = null;
 		if(count > 0) {

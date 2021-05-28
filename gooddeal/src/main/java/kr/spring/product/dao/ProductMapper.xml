@@ -21,6 +21,7 @@
 		        rownum rnum
 		      FROM(SELECT
 		      		  p.pro_num,
+		      		  p.pro_price,
 		      		  p.mem_num,
 		              p.pro_title,
 		              p.pro_date,
@@ -89,7 +90,35 @@
 			pro_buy=#{pro_buy}
 			<!-- modify_date=SYSDATE  -->
 		WHERE pro_num=#{pro_num}
-	</update>  
+	</update> 
+	
+	<!-- 댓글 모록  -->
+	<select id="selectListReply" parameterType="map"
+ 	                     resultType="productReplyVO">
+ 		SELECT
+ 		   *
+ 		FROM (SELECT 
+ 		        m.*, 
+ 		        rownum rnum 
+ 		      FROM (SELECT 
+                      *
+                    FROM (SELECT 
+                            rep_num,
+ 		                    rep_content,
+ 		                    TO_CHAR(rep_date,'YYYY-MM-DD HH24:MI:SS') rep_date,
+ 		                    pro_num,
+ 		                    mem_num
+                          FROM product_reply where pro_num=#{pro_num}) r 
+                               JOIN member m
+                               ON r.mem_num = m.mem_num
+                               ORDER BY rep_num DESC)m)
+                              
+ 		<![CDATA[
+ 		WHERE rnum >= #{start} AND rnum <= #{end}
+ 		]]>                                 
+ 	</select>
+	
+	 
 </mapper>
 
 

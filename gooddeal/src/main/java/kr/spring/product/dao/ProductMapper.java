@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import kr.spring.product.vo.ProductReplyVO;
 import kr.spring.product.vo.ProductVO;
 
 public interface ProductMapper {
@@ -40,4 +41,19 @@ public interface ProductMapper {
 
 	//상품 목록
 	public List<ProductVO> selectSellerList(Map<String,Object> map);
+
+	//=================댓글===============//
+	//댓글
+	public List<ProductReplyVO> selectListReply(Map<String,Object> map);
+	@Select("SELECT COUNT(*) FROM product_reply WHERE pro_num=#{pro_num}")
+	public int selectRowCountReply(Map<String,Object> map);
+	@Insert("INSERT INTO product_reply (rep_num,rep_content,pro_num,mem_num) VALUES (pro_reply_seq.nextval,#{rep_content},#{pro_num},#{mem_num})")
+	public void insertReply(ProductReplyVO productReply);
+	@Update("UPDATE product_reply SET rep_content=#{rep_content} WHERE rep_num=#{rep_num}")
+	public void updateReply(ProductReplyVO productReply);
+	@Delete("DELETE FROM product_reply WHERE rep_num=#{rep_num}")
+	public void deleteReply(Integer rep_num);
+	//부모글 삭제시 댓글이 존재하면 부모글 삭제전 댓글 삭제
+	@Delete("DELETE FROM product_reply WHERE pro_num=#{pro_num}")
+	public void deleteReplyByBoardNum(Integer pro_num);
 }
