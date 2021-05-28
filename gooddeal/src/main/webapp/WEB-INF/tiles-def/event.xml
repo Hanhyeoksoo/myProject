@@ -9,17 +9,13 @@
 		<put-attribute name="title" value="이벤트 게시판 목록"/>
 		<put-attribute name="body" value="/WEB-INF/views/event/eventList.jsp"/>
 	</definition>
-	<definition name="eventRegister" extends="main">
-		<put-attribute name="title" value="이벤트 게시판 목록"/>
-		<put-attribute name="body" value="/WEB-INF/views/event/eventRegister.jsp"/>
-	</definition>
 	<definition name="eventDo" extends="main">
-		<put-attribute name="title" value="이벤트 게시판 목록"/>
+		<put-attribute name="title" value="진행중인 이벤트"/>
 		<put-attribute name="body" value="/WEB-INF/views/event/eventDo.jsp"/>
 	</definition>
 	<definition name="eventCheck" extends="main">
-		<put-attribute name="title" value="이벤트 게시판 목록"/>
-		<put-attribute name="body" value="/WEB-INF/views/event/eventDo.jsp"/>
+		<put-attribute name="title" value="이벤트 당첨자 페이지"/>
+		<put-attribute name="body" value="/WEB-INF/views/event/eventCheck.jsp"/>
 	</definition>
 </tiles-definitions>
 
