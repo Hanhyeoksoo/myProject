@@ -19,7 +19,7 @@ public interface MemberMapper {
 	//회원 등록
 	@Insert("INSERT INTO member (mem_num,mem_id) VALUES(#{mem_num},#{mem_id})")
 	public void insertMember(MemberVO member);
-	@Insert("INSERT INTO member_detail (mem_num,mem_name,mem_password,mem_propick,mem_filename,mem_credit,mem_phone,mem_email,mem_zipcode,mem_address1,mem_address2,mem_date) VALUES (#{mem_num},#{mem_name},#{mem_password},#{mem_propick},#{mem_filename},#{mem_credit},#{mem_phone},#{mem_email},#{mem_zipcode},#{mem_address1},#{mem_address2},SYSDATE)")
+	@Insert("INSERT INTO member_detail (mem_num,mem_name,mem_password,mem_propick,mem_filename,mem_credit,mem_phone,mem_email,mem_zipcode,mem_address1,mem_address2,mem_address3,mem_date) VALUES (#{mem_num},#{mem_name},#{mem_password},#{mem_propick},#{mem_filename},#{mem_credit},#{mem_phone},#{mem_email},#{mem_zipcode},#{mem_address1},#{mem_address2},#{mem_address3},SYSDATE)")
 	public void insertMember_detail(MemberVO member);
 	//아이디 중복 체크 및 로그인 체크
 	@Select("SELECT m.mem_num,m.mem_id,m.mem_now,d.mem_password FROM member m LEFT OUTER JOIN member_detail d ON m.mem_num=d.mem_num WHERE m.mem_id=#{mem_id}")
@@ -28,7 +28,7 @@ public interface MemberMapper {
 	@Select("SELECT * FROM member m JOIN member_detail d ON m.mem_num=d.mem_num WHERE m.mem_num=#{mem_num}")
 	public MemberVO selectMember(Integer mem_num);
 	//회원 정보 수정
-	@Update("UPDATE member_detail SET mem_name=#{mem_name},mem_propick=#{mem_propick},mem_filename=#{mem_filename},mem_phone=#{mem_phone},mem_email=#{mem_email},mem_zipcode=#{mem_zipcode},mem_address1=#{mem_address1},mem_address2=#{mem_address2} WHERE mem_num=#{mem_num}")
+	@Update("UPDATE member_detail SET mem_name=#{mem_name},mem_propick=#{mem_propick},mem_filename=#{mem_filename},mem_phone=#{mem_phone},mem_email=#{mem_email},mem_zipcode=#{mem_zipcode},mem_address1=#{mem_address1},mem_address2=#{mem_address2},mem_address3=#{mem_address3} WHERE mem_num=#{mem_num}")
 	public void updateMember(MemberVO member);
 	//비밀번호 수정
 	@Update("UPDATE member_detail SET mem_password=#{mem_password} WHERE mem_num=#{mem_num}")

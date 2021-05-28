@@ -27,7 +27,7 @@
 						<li>전화번호 : ${member.mem_phone}</li>
 						<li>이메일 : ${member.mem_email}</li>
 						<li>우편번호 : ${member.mem_zipcode}</li>
-						<li>주소 : ${member.mem_address1} ${member.mem_address2}</li>
+						<li>주소 : ${member.mem_address1} ${member.mem_address2} ${member.mem_address3}</li>
 						<li>가입 날짜 : ${member.mem_date}</li>
 					</ul>
 			</th>

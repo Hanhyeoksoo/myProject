@@ -2,6 +2,7 @@ package kr.spring.member.vo;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.Arrays;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -36,6 +37,8 @@ public class MemberVO {
 	private String mem_address1;
 	@NotEmpty
 	private String mem_address2;
+	@NotEmpty
+	private String mem_address3;
 	private Date mem_date;
 	
 	@Pattern(regexp="^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%])[A-Za-z0-9!@#$%]{6,15}$")
@@ -200,7 +203,17 @@ public class MemberVO {
 		this.mem_address2 = mem_address2;
 	}
 
+	
+	public String getMem_address3() {
+		return mem_address3;
+	}
 
+	
+	public void setMem_address3(String mem_address3) {
+		this.mem_address3 = mem_address3;
+	}
+
+	
 	public Date getMem_date() {
 		return mem_date;
 	}
@@ -219,15 +232,18 @@ public class MemberVO {
 		this.now_password = now_password;
 	}
 
-
 	@Override
 	public String toString() {
 		return "MemberVO [mem_num=" + mem_num + ", mem_credit=" + mem_credit + ", mem_id=" + mem_id + ", mem_now="
-				+ mem_now + ", mem_name=" + mem_name + ", mem_password=" + mem_password + ", mem_password2="
+				+ mem_now + ", mem_name=" + mem_name + ", mem_propick=" + Arrays.toString(mem_propick)
+				+ ", mem_filename=" + mem_filename + ", mem_password=" + mem_password + ", mem_password2="
 				+ mem_password2 + ", mem_phone=" + mem_phone + ", mem_email=" + mem_email + ", mem_zipcode="
-				+ mem_zipcode + ", mem_address1=" + mem_address1 + ", mem_address2=" + mem_address2 + ", mem_date="
-				+ mem_date + ", modify_date=" + ", modify_passwd=" + now_password + "]";
+				+ mem_zipcode + ", mem_address1=" + mem_address1 + ", mem_address2=" + mem_address2 + ", mem_address3="
+				+ mem_address3 + ", mem_date=" + mem_date + ", now_password=" + now_password + "]";
 	}
+
+
+	
 
 
 
