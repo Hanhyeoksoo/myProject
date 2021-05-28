@@ -51,19 +51,17 @@
         }).open();
     }
 </script>
-<!-- 중안 컨테츠 시작 -->
 <div class="page-main-style">
-	<table border="1">
-		<tr>
-			<th width="20">
-				<p class="align-left">
-					<input type="button" value="회원 정보 수정" onclick="location.href='update.do'"><br>
-					<input type="button" value="비밀번호 변경" onclick="location.href='changePassword.do'"><br>
-					<input type="button" value="회원 탈퇴" onclick="location.href='delete.do'"><br>
-					<input type="button" value="판매내역" onclick="location.href='mysell.do'">
-				</p>		
-			</th>
-			<th>
+	<ul>
+		<li>
+			<input type="button" value="정보 수정" onclick="location.href='update.do'">
+			<input type="button" value="비밀번호 변경" onclick="location.href='changePassword.do'">
+			<input type="button" value="회원 탈퇴" onclick="location.href='delete.do'">
+			<input type="button" value="판매내역" onclick="location.href='mysell.do'">	
+			<hr width="100%" size="1" noshade="noshade">
+		</li>
+		<li>
+			<div>
 				<h2>회원 정보 수정</h2>
 				<form:form action="update.do" commandName="memberVO"  enctype="multipart/form-data">
 					<ul>
@@ -112,8 +110,8 @@
 						<input type="button" value="MyPage" onclick="location.href='myPage.do'">
 					</div>
 				</form:form>
-			</th>
-		</tr>
-	</table>
+			</div>
+		</li>
+	</ul>
 </div>
-<!-- 중안 컨테츠 끝 -->
+<!-- 중앙 컨텐츠 끝 -->

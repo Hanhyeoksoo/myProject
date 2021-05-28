@@ -1,19 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<!-- 중앙 컨텐츠 시작 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="page-main-style">
-	<table border="1">
-		<tr>
-			<th width="20">
-				<p class="align-left">
-					<input type="button" value="회원 정보 수정" onclick="location.href='update.do'"><br>
-					<input type="button" value="비밀번호 변경" onclick="location.href='changePassword.do'"><br>
-					<input type="button" value="회원 탈퇴" onclick="location.href='delete.do'"><br>
-					<input type="button" value="판매내역" onclick="location.href='mysell.do'">
-				</p>		
-			</th>
-			<th>
+	<ul>
+		<li>
+			<input type="button" value="정보 수정" onclick="location.href='update.do'">
+			<input type="button" value="비밀번호 변경" onclick="location.href='changePassword.do'">
+			<input type="button" value="회원 탈퇴" onclick="location.href='delete.do'">
+			<input type="button" value="판매내역" onclick="location.href='mysell.do'">	
+			<hr width="100%" size="1" noshade="noshade">
+		</li>
+		<li>
+			<div>
 				<h2>회원 상세 정보</h2>
 					<ul>
 					    <c:if test="${!empty member.mem_filename}">
@@ -30,8 +28,8 @@
 						<li>주소 : ${member.mem_address1} ${member.mem_address2} ${member.mem_address3}</li>
 						<li>가입 날짜 : ${member.mem_date}</li>
 					</ul>
-			</th>
-		</tr>
-	</table>
+			</div>
+		</li>
+	</ul>
 </div>
 <!-- 중앙 컨텐츠 끝 -->
