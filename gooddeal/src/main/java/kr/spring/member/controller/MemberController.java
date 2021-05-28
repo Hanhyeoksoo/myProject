@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import kr.spring.member.service.MemberService;
 import kr.spring.member.vo.MemberVO;
 import kr.spring.util.AuthCheckException;
@@ -321,5 +320,36 @@ public class MemberController {
 	
 	
 	//=====판매내역 목록=====//
-	
+	//회원 등록 폼 호출
+	//=====게시판 글 목록=====//
+		@RequestMapping("/member/mysell.do")
+		public ModelAndView process(@RequestParam(value="pageNum",
+												  defaultValue="1") int currentPage) {
+			//총 레코드 수
+			int count = memberService.selectRowCount();
+			
+			if(log.isDebugEnabled()) {
+				log.debug("<<pageNum>> : " + currentPage);
+				log.debug("<<count>> : " + count);
+			}
+			
+			//페이징 처리
+			PagingUtil page = new PagingUtil(currentPage,count,10,10,"mysell.do");
+			
+			List<MemberVO> list = null;
+			if(count > 0) {
+				Map<String,Object> map = new HashMap<String,Object>();
+				map.put("start", page.getStartCount());
+				map.put("end", page.getEndCount());
+				list = memberService.selectList(map);
+			}
+			
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("boardList");
+			mav.addObject("count", count);
+			mav.addObject("list", list);
+			mav.addObject("pagingHtml", page.getPagingHtml());
+			
+			return mav;
+		}
 }

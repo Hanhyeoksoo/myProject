@@ -24,8 +24,7 @@
 					<input type="button" value="회원 정보 수정" onclick="location.href='update.do'"><br>
 					<input type="button" value="비밀번호 변경" onclick="location.href='changePassword.do'"><br>
 					<input type="button" value="회원 탈퇴" onclick="location.href='delete.do'"><br>
-					<input type="button" value="구매내역" onclick="location.href='mysell.do'"><br>
-					<input type="button" value="판매내역" onclick="location.href='mybuy.do'">
+					<input type="button" value="판매내역" onclick="location.href='mysell.do'">
 				</p>		
 			</th>
 			<th>

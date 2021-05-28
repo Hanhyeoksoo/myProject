@@ -16,27 +16,38 @@ public class ProductService {
 	//의존 관계 설정
 	@Resource
 	private ProductMapper productMapper;
-		
+
 	//상품 등록
 	public void insertProduct(ProductVO product) {
 		productMapper.insertProduct(product);
 	}
-	
+
 	//총 레코드 수
-		public int selectRowCount() {
-			return productMapper.selectRowCount();
-		}
-	
+	public int selectRowCount() {
+		return productMapper.selectRowCount();
+	}
+
 	//상품 목록
 	public List<ProductVO> selectList(Map<String,Object> map){
 		return productMapper.selectList(map);
 	}
-	
+
+	//판매자 정보 처리
+	//총 레코드 수
+	public int selectSellerRowCount(Map<String,Object> map) {
+		return productMapper.selectSellerRowCount(map);
+	}
+
+	//상품 목록
+	public List<ProductVO> selectSellerList(Map<String,Object> map){
+		return productMapper.selectSellerList(map);
+	}
+
 	//상품 상세
 	public ProductVO selectProduct(Integer pro_num) {
 		return productMapper.selectProduct(pro_num);
 	}
-	
+
 	//상품 수정
 	public void updateProduct(ProductVO product) {
 		productMapper.updateProduct(product);
@@ -45,5 +56,5 @@ public class ProductService {
 	public void deleteProduct(Integer pro_num) {
 		productMapper.deleteProduct(pro_num);
 	}
-		
+
 }

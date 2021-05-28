@@ -39,6 +39,33 @@
     	WHERE rnum >= #{start} AND rnum <= #{end}
     	]]>
 	</select>
+	<!-- 판매자 정보 처리 -->
+	<!-- 총 레코드 수 -->
+	<select id="selectSellerRowCount" parameterType="map" resultType="integer">
+		SELECT
+		   COUNT(*)
+		FROM product p 
+		WHERE mem_num = #{user_num}
+	</select>
+	<!-- 상품 목록 -->
+	<select id="selectSellerList" parameterType="map"
+	                                   resultType="productVO">
+		SELECT
+		   *
+		FROM (SELECT 
+		        a.*,
+		        rownum rnum
+		      FROM(SELECT
+		      		 *
+		           FROM product p
+		           WHERE mem_num = #{user_num}
+		           ORDER BY p.pro_num DESC)a)
+    	<![CDATA[
+    	WHERE rnum >= #{start} AND rnum <= #{end}
+    	]]>
+	</select>
+	
+	
 	<!-- 글 수정 -->
 	 <update id="updateProduct" parameterType="productVO">
 		UPDATE product SET

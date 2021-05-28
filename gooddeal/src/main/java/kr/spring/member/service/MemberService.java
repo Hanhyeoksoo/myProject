@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-
 import kr.spring.member.dao.MemberMapper;
 import kr.spring.member.vo.MemberVO;
 
@@ -51,7 +50,14 @@ public class MemberService {
 	}
 	
 	
+	//로우카운트
+	public int selectRowCount() {
+		return memberMapper.selectRowCount();
+	}
 	//판매 글 목록
+	public List<MemberVO> selectList(Map<String,Object> map){
+		return memberMapper.selectList(map);
+	}
 	
 
 }

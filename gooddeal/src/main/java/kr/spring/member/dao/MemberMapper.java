@@ -1,9 +1,13 @@
 package kr.spring.member.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+
 
 import kr.spring.member.vo.MemberVO;
 
@@ -35,8 +39,10 @@ public interface MemberMapper {
 	@Delete("DELETE FROM member_detail WHERE mem_num=#{mem_num}")
 	public void deleteMember_detail(Integer mem_num);
 	
-	
-	//판매내역
+	//레코드수
+	public int selectRowCount();
+	//판매내역 목록
+	public List<MemberVO> selectList(Map<String,Object> map);
 	//@Select("SELECT * FROM product WHERE mem_num=#{mem_nem}")
 	//public void selectproductMember(ProductVO product)
 }
