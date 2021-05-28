@@ -14,27 +14,7 @@
 		<input type="button" name="검색" title="검색" maxlength="255"
 		autocomplete="off" value="검색" onclick="">
 	</div>
-	<form:form action="eventCheck.do" commandName="eventVO"
-	               enctype="multipart/form-data">
-		<ul>
-			<li>
-				<label for="number">번호</label>
-				<form:input path="number"/>
-				<form:errors path="number"/>
-			</li>
-			<li>
-				<label for="title">제목</label>
-				<form:input path="title"/>
-				<form:errors path="title"/>
-			</li>
-			<li>
-				<label for="date">등록일</label>
-				<form:textarea path="date"/>
-				<form:errors path="date"/>
-			</li>
-		</ul>
-	</form:form>
-	</div>
+</div>
 <!-- 중앙 컨텐츠 끝 -->
 
 

@@ -4,8 +4,8 @@
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main-style">
 	<h2>이벤트 목록</h2>
-	<a href="/gooddeal/event/eventDo.do">진행중 이벤트</a>
-	<a href="/gooddeal/event/eventCheck.do">이벤트 당첨자 페이지</a>
+	<a href="eventDo.do">진행중 이벤트</a>
+	<a href="eventCheck.do">이벤트 당첨자 페이지</a>
 	<div>
 		<ul>
 			<li>판매자 순위</li>

@@ -86,6 +86,10 @@ public class EventVO {
 				+ eve_content + ", eve_user=" + eve_user + ", eve_start=" + eve_start + ", eve_end=" + eve_end
 				+ ", eve_date=" + eve_date + ", eve_status=" + eve_status + "]";
 	}
+	public void setIp(String remoteAddr) {
+		// TODO Auto-generated method stub
+		
+	}
     
     
     
