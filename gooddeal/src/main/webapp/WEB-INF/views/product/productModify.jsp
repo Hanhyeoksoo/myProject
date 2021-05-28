@@ -42,15 +42,33 @@
 				<form:radiobutton path="pro_buy" value="3" />판매중지
 				<form:errors path="pro_buy" cssClass="error-color"/>
 			</li>
-			<%-- <li>
-				<label for="upload">파일 업로드</label>
-				<input type="file" name="upload" id="upload">
-				<c:if test="${!empty boardVO.filename}">
+			<li>	
+				<label for="upload1">이미지1</label>
+				<input type="file" name="upload1" id="upload1" />
+				<c:if test="${!empty productVO.pro_filename1}">
 				<br>
-				<span>(${boardVO.filename})파일이 등록되어 있습니다.
+				<span>(${productVO.pro_filename1})파일이 등록되어 있습니다.
 				다시 업로드하면 기존 파일은 삭제됩니다.</span>
 				</c:if>
-			</li> --%>
+			</li>
+			<li>	
+				<label for="upload2">이미지2</label>
+				<input type="file" name="upload2" id="upload2" />
+				<c:if test="${!empty productVO.pro_filename2}">
+				<br>
+				<span>(${productVO.pro_filename2})파일이 등록되어 있습니다.
+				다시 업로드하면 기존 파일은 삭제됩니다.</span>
+				</c:if>
+			</li>
+			<li>	
+				<label for="upload3">이미지3</label>
+				<input type="file" name="upload3" id="upload3" />
+				<c:if test="${!empty productVO.pro_filename3}">
+				<br>
+				<span>(${productVO.pro_filename3})파일이 등록되어 있습니다.
+				다시 업로드하면 기존 파일은 삭제됩니다.</span>
+				</c:if>
+			</li>
 		</ul>     
 		<div class="align-center">
 			<input type="submit" value="전송">

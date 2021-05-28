@@ -14,7 +14,7 @@ public interface ProductMapper {
 	//중고 장터
 	
 	//상품 등록
-	@Insert("INSERT INTO product (pro_num,mem_num,pro_title,pro_tag,pro_price,pro_content,pro_status,pro_date,pro_buy) VALUES (product_seq.nextval,#{mem_num},#{pro_title},#{pro_tag},#{pro_price},#{pro_content},#{pro_status},SYSDATE,#{pro_buy})")
+	@Insert("INSERT INTO product (pro_num,mem_num,pro_title,pro_tag,pro_price,pro_content,pro_status,pro_date,pro_buy,pro_uploadfile1,pro_filename1,pro_uploadfile2,pro_filename2,pro_uploadfile3,pro_filename3) VALUES (product_seq.nextval,#{mem_num},#{pro_title},#{pro_tag},#{pro_price},#{pro_content},#{pro_status},SYSDATE,#{pro_buy},#{pro_uploadfile1},#{pro_filename1},#{pro_uploadfile2},#{pro_filename2},#{pro_uploadfile3},#{pro_filename3})")
 	public void insertProduct(ProductVO product);
 	
 	//총 레코드 수

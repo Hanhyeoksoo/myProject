@@ -206,4 +206,22 @@ li.paging-current{
 .nav_item{
 	list-style:none;
 }
-
+/*중고 장터*/
+#wrap{
+	width:800px;
+	padding-left:40px;
+	overflow:hidden;
+}
+.item{
+	margin:5px;
+	padding:5px;
+	width:240px;
+	height:150px;
+	float:left;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}

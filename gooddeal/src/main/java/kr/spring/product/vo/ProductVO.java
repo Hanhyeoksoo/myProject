@@ -18,6 +18,33 @@ public class ProductVO {
 	private int pro_status;
 	private Date pro_date;
 	private int pro_buy;
+	private byte[] pro_uploadfile1;
+	private String pro_filename1;
+	private byte[] pro_uploadfile2;
+	private String pro_filename2;
+	private byte[] pro_uploadfile3;
+	private String pro_filename3;
+	private String mem_id;
+
+	//업로드 파일 처리
+	public void setUpload1(MultipartFile upload1)throws IOException{
+		//MultipartFile -> byte[] 변환
+		setPro_uploadfile1(upload1.getBytes());
+		//파일명 구하기
+		setPro_filename1(upload1.getOriginalFilename());
+	}
+	public void setUpload2(MultipartFile upload2)throws IOException{
+		//MultipartFile -> byte[] 변환
+		setPro_uploadfile2(upload2.getBytes());
+		//파일명 구하기
+		setPro_filename2(upload2.getOriginalFilename());
+	}
+	public void setUpload3(MultipartFile upload3)throws IOException{
+		//MultipartFile -> byte[] 변환
+		setPro_uploadfile3(upload3.getBytes());
+		//파일명 구하기
+		setPro_filename3(upload3.getOriginalFilename());
+	}
 
 	public int getPro_num() {
 		return pro_num;
@@ -73,12 +100,47 @@ public class ProductVO {
 	public void setPro_buy(int pro_buy) {
 		this.pro_buy = pro_buy;
 	}
+	public byte[] getPro_uploadfile1() {
+		return pro_uploadfile1;
+	}
+	public void setPro_uploadfile1(byte[] pro_uploadfile1) {
+		this.pro_uploadfile1 = pro_uploadfile1;
+	}
+	public String getPro_filename1() {
+		return pro_filename1;
+	}
+	public void setPro_filename1(String pro_filename1) {
+		this.pro_filename1 = pro_filename1;
+	}
+	public byte[] getPro_uploadfile2() {
+		return pro_uploadfile2;
+	}
+	public void setPro_uploadfile2(byte[] pro_uploadfile2) {
+		this.pro_uploadfile2 = pro_uploadfile2;
+	}
+	public String getPro_filename2() {
+		return pro_filename2;
+	}
+	public void setPro_filename2(String pro_filename2) {
+		this.pro_filename2 = pro_filename2;
+	}
+	public byte[] getPro_uploadfile3() {
+		return pro_uploadfile3;
+	}
+	public void setPro_uploadfile3(byte[] pro_uploadfile3) {
+		this.pro_uploadfile3 = pro_uploadfile3;
+	}
+	public String getPro_filename3() {
+		return pro_filename3;
+	}
+	public void setPro_filename3(String pro_filename3) {
+		this.pro_filename3 = pro_filename3;
+	}
+	public String getMem_id() {
+		return mem_id;
+	}
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
+	}
 	
-	//업로드 파일 처리
-//		public void setUpload(MultipartFile upload)throws IOException{
-//			//MultipartFile -> byte[] 변환
-//			setUploadfile(upload.getBytes());
-//			//파일명 구하기
-//			setFilename(upload.getOriginalFilename());
-//		}
 }

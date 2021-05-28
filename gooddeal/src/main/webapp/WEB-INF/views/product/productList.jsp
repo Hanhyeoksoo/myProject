@@ -13,23 +13,26 @@
 	<div class="align-center">등록된 상품이 없습니다.</div>
 	</c:if>
 	<c:if test="${count > 0 }">
-	<table>
-		<tr>
-			<th>작성자번호</th>
-			<th width="400">제목</th>
-			<!-- 상품 사진 만들 자리-->
-			<th>등록일</th>
-		</tr>
+	<div id="wrap">
 		<c:forEach var="product" items="${list}">
-		<tr>
-			<td>${product.mem_num}</td>
-			<td><a href="detail.do?pro_num=${product.pro_num}">${product.pro_title}</a></td>
-			<!-- 상품 사진 만들 자리-->
-			<td>${product.pro_date}</td>
-		</tr>
+		<div class="item">
+			<p>
+				<c:if test="${!empty product.pro_filename1}">
+				<div class="align-center">
+					<a href="detail.do?pro_num=${product.pro_num}">
+					<img src="imageView.do?pro_num=${product.pro_num}&img_num=1"
+					                           style="max-width:300px"></a>
+				</div>
+				</c:if>
+			</p>
+			<p class="align-center"><a href="detail.do?pro_num=${product.pro_num}"><span>${product.pro_title}</span></a><br>
+			   <a href="detail.do?pro_num=${product.pro_num}"><span>${product.pro_date}</span></a>
+			</p>
+			
+		</div>
 		</c:forEach>
-	</table>
-	<div class="algign-center">${pagingHtml}</div>
+	</div>
+	<div class="align-center">${pagingHtml}</div>
 	</c:if>
 </div>  
 <!-- 중앙 컨텐츠 끝 -->

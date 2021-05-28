@@ -23,11 +23,18 @@
 		      		  p.pro_num,
 		      		  p.mem_num,
 		              p.pro_title,
-		              p.pro_date
+		              p.pro_date,
+		              p.pro_uploadfile1,
+		              p.pro_filename1,
+		              p.pro_uploadfile2,
+		              p.pro_filename2,
+		              p.pro_uploadfile3,
+		              p.pro_filename3,
+		              m.mem_id
 		           FROM product p
 		           JOIN member m
 		           ON p.mem_num=m.mem_num
-		           ORDER BY m.mem_num DESC)a)
+		           ORDER BY p.pro_num DESC)a)
     	<![CDATA[
     	WHERE rnum >= #{start} AND rnum <= #{end}
     	]]>
@@ -35,10 +42,18 @@
 	<!-- 글 수정 -->
 	 <update id="updateProduct" parameterType="productVO">
 		UPDATE product SET
-			<!-- <if test="filename != ''">
-			uploadfile=#{uploadfile},
-			filename=#{filename},
-			</if>  -->	
+			<if test="pro_filename1 != ''">
+			pro_uploadfile1=#{pro_uploadfile1},
+			pro_filename1=#{pro_filename1},
+			</if>
+			<if test="pro_filename2 != ''">
+			pro_uploadfile2=#{pro_uploadfile2},
+			pro_filename2=#{pro_filename2},
+			</if>	
+			<if test="pro_filename3 != ''">
+			pro_uploadfile3=#{pro_uploadfile3},
+			pro_filename3=#{pro_filename3},
+			</if>		
 			pro_title=#{pro_title},
 			pro_tag=#{pro_tag},
 			pro_price=#{pro_price},

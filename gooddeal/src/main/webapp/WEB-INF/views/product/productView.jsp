@@ -18,29 +18,41 @@
 <div class="page-main-style">
 	<h2>${product.pro_title}</h2>
 	<ul>
-		<li>작성자번호 : ${product.mem_num}</li>
+		<li>판매자 : ${product.mem_id}</li>
 		<li>연관 태그 : ${product.pro_tag}</li>
 		<li>상품 금액 : ${product.pro_price}</li>
 		<!-- 사진 넣을 자리 -->
 		<li>내용 : ${product.pro_content}</li>
-		<li>상품 상태 : ${product.pro_status}</li>
-		<li>판매 상태 : ${product.pro_buy}</li>
+		<li>상품 상태 : 
+		<c:if test="${product.pro_status == 1}">새상품</c:if>
+		<c:if test="${product.pro_status == 2}">중고</c:if>
+		</li>
+		<li>판매 상태 : 
+		<c:if test="${product.pro_buy == 1}">판매중</c:if>
+		<c:if test="${product.pro_buy == 2}">판매완료</c:if>
+		<c:if test="${product.pro_buy == 3}">판매중지</c:if>
+		</li>
 		<li>작성일 : ${product.pro_date}</li>
 	</ul>
 	<hr size="1" width="100%">
-	<!--
-	<c:if test="${fn:endsWith(board.filename,'.jpg') || 
-	              fn:endsWith(board.filename,'.JPG') ||
-	              fn:endsWith(board.filename,'.gif') ||
-	              fn:endsWith(board.filename,'.GIF') ||
-	              fn:endsWith(board.filename,'.png') ||
-	              fn:endsWith(board.filename,'.PNG')}">
+	<c:if test="${!empty product.pro_filename1}">
 	<div class="align-center">
-		<img src="imageView.do?board_num=${board.board_num}"
+		<img src="imageView.do?pro_num=${product.pro_num}&img_num=1"
 		                           style="max-width:500px">
 	</div>
 	</c:if>
-	  -->
+	<c:if test="${!empty product.pro_filename2}">
+	<div class="align-center">
+		<img src="imageView.do?pro_num=${product.pro_num}&img_num=2"
+		                           style="max-width:500px">
+	</div>
+	</c:if>
+	<c:if test="${!empty product.pro_filename3}">
+	<div class="align-center">
+		<img src="imageView.do?pro_num=${product.pro_num}&img_num=3"
+		                           style="max-width:500px">
+	</div>
+	</c:if>
 	<p>
 		${product.pro_content}
 	</p>

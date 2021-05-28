@@ -34,6 +34,18 @@
 				<form:errors path="pro_status" cssClass="error-color"/>
 			</li>
 			<li>	
+				<label for="upload1">이미지1</label>
+				<input type="file" name="upload1" id="upload1" />
+			</li>
+			<li>	
+				<label for="upload2">이미지2</label>
+				<input type="file" name="upload2" id="upload2" />
+			</li>
+			<li>	
+				<label for="upload3">이미지3</label>
+				<input type="file" name="upload3" id="upload3" />
+			</li>
+			<li>	
 				<label for="pro_buy">판매 상태</label>
 				<form:radiobutton path="pro_buy" value="1" />판매중
 				<form:radiobutton path="pro_buy" value="2" />판매완료
