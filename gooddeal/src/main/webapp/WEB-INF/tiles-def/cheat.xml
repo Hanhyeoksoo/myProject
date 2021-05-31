@@ -11,7 +11,15 @@
 	</definition>
 	<definition name="cheatRegister" extends="main">
 		<put-attribute name="title" value="신고게시판 목록"/>
-		<put-attribute name="body" value="/WEB-INF/views/cheat/cheatRegister.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/views/cheat/cheatWrite.jsp"/>
+	</definition>
+	<definition name="cheatView" extends="main">
+		<put-attribute name="title" value="신고게시판 목록"/>
+		<put-attribute name="body" value="/WEB-INF/views/cheat/cheatView.jsp"/>
+	</definition>
+		<definition name="cheatModify" extends="main">
+		<put-attribute name="title" value="신고게시판 글 수정"/>
+		<put-attribute name="body" value="/WEB-INF/views/cheat/cheatModify.jsp"/>
 	</definition>
 </tiles-definitions>
 

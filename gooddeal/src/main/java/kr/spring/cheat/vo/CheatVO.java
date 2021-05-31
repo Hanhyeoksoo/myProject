@@ -11,11 +11,12 @@ public class CheatVO {
     private String che_title;
     @NotEmpty
     private String che_content;
-    @NotEmpty
     private int che_pnum;
     private int che_view;
     private int che_admincheck;
     private Date che_date;
+    private String mem_id;
+
     
 	public int getChe_num() {
 		return che_num;
@@ -65,5 +66,11 @@ public class CheatVO {
 	public void setChe_date(Date che_date) {
 		this.che_date = che_date;
 	}
-    
+	public String getMem_id() {
+		return mem_id;
+	}
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
+	}
+
 };

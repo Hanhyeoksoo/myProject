@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.cheat.dao.CheatMapper">
+	<!-- 총 레코드 수 --> 
+	<select id="selectRowCount" resultType="integer">
+		SELECT
+		   COUNT(*)
+		FROM cheat_board b
+		JOIN member m
+		ON b.mem_num = m.mem_num
+	</select>
+	<!-- 글 목록 -->
+	<select id="selectList" parameterType="map"
+	                                   resultType="cheatVO">
+		SELECT
+		   *
+		FROM (SELECT 
+		        a.*,
+		        rownum rnum
+		      FROM(SELECT
+		              b.che_num,
+		              <![CDATA[
+		              REPLACE(REPLACE(b.che_title,'<','&lt;'),'>','&gt;') che_title,
+		              ]]>
+		              
+		              b.che_view,
+		              b.che_date,
+		              b.mem_num,
+		              m.mem_id
+		           FROM cheat_board b
+		           JOIN member m
+		           ON b.mem_num=m.mem_num
+		           ORDER BY b.che_num DESC)a)
+    	<![CDATA[
+    	WHERE rnum >= #{start} AND rnum <= #{end}
+    	]]>
+	</select>
+	<!-- 글 수정 -->
+	<update id="updateBoard" parameterType="cheatVO">
+		UPDATE cheat_board SET	
+			che_title=#{che_title},
+			che_content=#{che_content},
+			che_date=SYSDATE
+		WHERE che_num=#{che_num}
+	</update>
+</mapper>
+
+
+
+
+
+
+

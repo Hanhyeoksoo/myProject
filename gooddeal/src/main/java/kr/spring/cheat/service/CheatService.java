@@ -30,7 +30,7 @@ public class CheatService {
 	
 	//글 목록
 	public List<CheatVO> selectList(Map<String,Object> map){
-		return cheatMapper.selcetList(map);
+		return cheatMapper.selectList(map);
 	}
 	
 	//글 상세 페이지
@@ -49,8 +49,8 @@ public class CheatService {
 	}
 	
 	//글 삭제
-	public void deleteBoard(Integer board_num) {
-		cheatMapper.deleteBoard(board_num);
+	public void deleteBoard(Integer che_num) {
+		cheatMapper.deleteBoard(che_num);
 	}	
 
 }
