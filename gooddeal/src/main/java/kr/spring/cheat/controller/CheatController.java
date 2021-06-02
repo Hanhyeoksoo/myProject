@@ -22,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.cheat.service.CheatService;
 import kr.spring.cheat.vo.CheatVO;
+import kr.spring.member.service.MemberService;
+import kr.spring.member.vo.MemberVO;
 import kr.spring.util.PagingUtil;
 import kr.spring.util.StringUtil;
 
@@ -32,6 +34,8 @@ public class CheatController {
 	
 	@Resource
 	private CheatService cheatService;
+	@Resource
+	private MemberService memberService;
 	
 	@ModelAttribute
 	public CheatVO initCommand() {
@@ -151,10 +155,16 @@ public class CheatController {
 	}
 	//관리자가 확인
 	@RequestMapping(value="/cheat/adminCheck.do",method=RequestMethod.POST)
-	public String checkCheatting(@RequestParam int che_num) {
+	public String checkCheatting(@RequestParam int che_num,@RequestParam int che_pnum) {
 		
 		//글 수정
 		cheatService.updateCheatByAdmin(che_num);
+		//신고당한 사람의 포인트 정보 읽기
+		MemberVO memberVO = memberService.selectMember(che_pnum);
+		//포인트 차감
+		if(memberVO.getMem_credit()>0) {
+			memberService.updateCredit(che_pnum);
+		}
 		
 		return "redirect:/cheat/detail.do?che_num="+che_num;
 	}
