@@ -3,35 +3,51 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>   
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<style>
-
-</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+<!-- <style> .carousel-inner > .carousel-item > img{ /* width: 640px; height: 720px; */ } </style>  -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/product.reply.js"></script>
+
 <!-- 중앙 컨텐츠 시작 -->
 	<h2>${product.pro_title}</h2>
-	<div id="wrap">
-		<hr size="1" width="100%">
-		<h3>상품 이미지</h3>
-		
-		<c:if test="${!empty product.pro_filename1}">
-		<div class="align-center">
-			<img src="imageView.do?pro_num=${product.pro_num}&img_num=1"
-												style="max-width:500px">	
+	<hr size="1" width="100%">
+<div class="container"><h2>상품 이미지</h2></div> 
+	<div id="demo" class="carousel slide" data-ride="carousel">
+ 	<div class="carousel-inner">
+ <!-- 슬라이드 쇼 --> 
+		<div class="carousel-item active">
+<!--가로-->
+	 		<c:if test="${!empty product.pro_filename1}">
+			<img class="d-block w-100" src="imageView.do?pro_num=${product.pro_num}&img_num=1" alt="First slide">
+			</c:if>
+		 <div class="carousel-caption d-none d-md-block"> 
+	  	 </div> 
+	 	 </div> 
+ 		<div class="carousel-item">
+			<c:if test="${!empty product.pro_filename2}">
+			<img class="d-block w-100" src="imageView.do?pro_num=${product.pro_num}&img_num=2" alt="Second slide">
+			</c:if>
+		</div> 
+		<div class="carousel-item"> 
+			<c:if test="${!empty product.pro_filename3}">
+			<img class="d-block w-100" src="imageView.do?pro_num=${product.pro_num}&img_num=3" alt="Third slide">
+			</c:if>
 		</div>
-		</c:if>
-		<c:if test="${!empty product.pro_filename2}">
-		<div class="align-center">
-			<img src="imageView.do?pro_num=${product.pro_num}&img_num=2"
-												style="max-width:500px">
-		</div>
-		</c:if>
-		<c:if test="${!empty product.pro_filename3}">
-		<div class="align-center">
-			<img src="imageView.do?pro_num=${product.pro_num}&img_num=3"
-												style="max-width:500px">	
-		</div>	
-		</c:if>
+<!-- / 슬라이드 쇼 끝 -->
+<!-- 왼쪽 오른쪽 화살표 버튼 -->
+	<a class="carousel-control-prev" href="#demo" data-slide="prev"> 
+	<span class="carousel-control-prev-icon" aria-hidden="true"></span></a>
+	<a class="carousel-control-next" href="#demo" data-slide="next"> 
+	<span class="carousel-control-next-icon" aria-hidden="true"></span> </a>
+<!-- / 화살표 버튼 끝 -->
+<!-- 인디케이터 -->
+	<ul class="carousel-indicators"> 
+		<li data-target="#demo" data-slide-to="0" class="active"></li> <!--0번부터시작--> 
+		<li data-target="#demo" data-slide-to="1"></li> 
+		<li data-target="#demo" data-slide-to="2"></li> 
+	</ul> 
+<!-- 인디케이터 끝 --> 
+	</div>
 	</div>
 	<hr size="1" width="100%">
 	<ul>

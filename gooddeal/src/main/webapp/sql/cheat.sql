@@ -11,3 +11,5 @@ create table cheat_board(
     constraint cheat_board_pk primary key (che_num),
 	constraint cheat_board_fk foreign key (mem_num) references member (mem_num)
 ); 
+
+create sequence cheat_board_seq;

@@ -24,8 +24,8 @@ public class ProductService {
 	}
 
 	//총 레코드 수
-	public int selectRowCount() {
-		return productMapper.selectRowCount();
+	public int selectRowCount(Map<String,Object> map) {
+		return productMapper.selectRowCount(map);
 	}
 
 	//상품 목록

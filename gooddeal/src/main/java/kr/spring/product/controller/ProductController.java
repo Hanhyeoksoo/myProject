@@ -70,10 +70,13 @@ public class ProductController {
 	//상품 목록
 	@RequestMapping("/product/list.do")
 	public ModelAndView process(
-			@RequestParam(value="pageNum",defaultValue="1") int currentPage) {
+			@RequestParam(value="pageNum",defaultValue="1") int currentPage,
+			@RequestParam(value="keyword",defaultValue="") String keyword) {
 
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("keyword", keyword);
 		//총 레코드 수
-		int count = productService.selectRowCount();
+		int count = productService.selectRowCount(map);
 
 		if(log.isDebugEnabled()) {
 			log.debug("<<pageNum>> : " + currentPage);
@@ -82,11 +85,10 @@ public class ProductController {
 
 		//페이징 처리
 		PagingUtil page = 
-				new PagingUtil(currentPage,count,9,10,"list.do");
+				new PagingUtil(currentPage,count,9,10,"list.do","&keyword="+keyword);
 
 		List<ProductVO> list = null;
 		if(count > 0) {
-			Map<String,Object> map = new HashMap<String,Object>();
 			map.put("start", page.getStartCount());
 			map.put("end", page.getEndCount());
 			list = productService.selectList(map);

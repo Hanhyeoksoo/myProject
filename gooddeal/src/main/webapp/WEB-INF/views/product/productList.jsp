@@ -2,28 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
-<script>
-//	window.onload=function(){
-//		var search_btn = document.getElementById('search_btn');
-//		//이벤트 연결
-//		search_btn.onclick=function(){
-//				$.ajax({
-//					
-//				})
-//			}
-//		};
-//	};
-//주석주석
-</script>
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main-style">
 	<h2>상품 목록</h2>
 	<div class="align-right">
-			<input type="text" value="검색 할 상품입력" size="15">
-			<input id="search_btn" type="button" value="검색하기">
-		<c:if test="${!empty user_num}">
+	        <form action="list.do" method="get" style="border:none;">
+			<input type="text" placeholder="검색 할 상품입력" name="keyword" size="15">
+			<input type="submit" value="검색하기">
+			<c:if test="${!empty user_num}">
 			<input type="button" value="상품 등록" onclick="location.href='write.do'">
 		</c:if>
+			</form>
 	</div>
 	<c:if test="${count == 0 }">
 	<div class="align-center">등록된 상품이 없습니다.</div>

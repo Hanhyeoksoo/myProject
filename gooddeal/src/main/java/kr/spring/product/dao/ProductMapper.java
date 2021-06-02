@@ -19,7 +19,7 @@ public interface ProductMapper {
 	public void insertProduct(ProductVO product);
 
 	//총 레코드 수
-	public int selectRowCount();
+	public int selectRowCount(Map<String,Object> map);
 
 	//상품 목록
 	public List<ProductVO> selectList(Map<String,Object> map);
