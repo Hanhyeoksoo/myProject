@@ -14,8 +14,7 @@
 		<input type="button" name="검색" title="검색" maxlength="255"
 		autocomplete="off" value="검색" onclick="">
 	</div>
-	<form:form action="eventCheck.do" commandName="eventVO"
-	               enctype="multipart/form-data">
+	<form:form action="eventCheck.do" commandName="eventVO">
 		<ul>
 			<li>
 				<label for="number">번호</label>
@@ -33,6 +32,9 @@
 				<form:errors path="date"/>
 			</li>
 		</ul>
+		<div class="align-center">
+			<input type="submit" value="등록">
+		</div>
 	</form:form>
 	</div>
 <!-- 중앙 컨텐츠 끝 -->

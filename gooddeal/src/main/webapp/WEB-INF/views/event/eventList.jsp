@@ -13,11 +13,7 @@
 			<li><a href="#">광고</a><a href="#">광고</a><a href="#">광고</a></li>
 			<li><a href="#">광고</a><a href="#">광고</a><a href="#">광고</a></li>
 			<li><a href="#">광고</a><a href="#">광고</a><a href="#">광고</a></li>
-			<li><a href="#">광고</a><a href="#">광고</a><a href="#">광고</a></li>
 		</ul>
 	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->
-
-
-
