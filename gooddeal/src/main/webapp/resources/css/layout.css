@@ -176,7 +176,6 @@ div#main_menu ul li{
 }
 .page-main-style label{
 	width:130px;
-	float:left;
 }
 .page-main-style input[type="text"],.page-main-style input[type="password"],.page-main-style input[type="email"]{
 	width:200px;
