@@ -7,7 +7,6 @@
 	<div class="align-center">
 		<li><a href="#">광고</a><a href="#">광고</a><a href="#">광고</a></li>
 		<li><a href="#">광고</a><a href="#">광고</a><a href="#">광고</a></li>
-		<li><a href="#">광고</a><a href="#">광고</a><a href="#">광고</a></li>
 	</div>
 </div>
 <!-- 중앙 컨텐츠 끝 -->

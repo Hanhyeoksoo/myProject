@@ -9,10 +9,11 @@
 	<div>
 		<ul>
 			<li>판매자 순위</li>
-			<li><a href="#">광고</a><a href="#">광고</a><a href="#">광고</a></li>
-			<li><a href="#">광고</a><a href="#">광고</a><a href="#">광고</a></li>
-			<li><a href="#">광고</a><a href="#">광고</a><a href="#">광고</a></li>
-			<li><a href="#">광고</a><a href="#">광고</a><a href="#">광고</a></li>
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/버거.jpg" width="310" height="210"></a>
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/추석맞이이벤트.jpg" width="310" height="210"></a>
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/본죽.jpg" width="310" height="210"></a>
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/회원가입.jpg" width="310" height="210"></a>
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/회원가입.jpg" width="310" height="210"></a>
 		</ul>
 	</div>
 </div>
