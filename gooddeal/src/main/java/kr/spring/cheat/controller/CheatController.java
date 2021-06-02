@@ -138,7 +138,7 @@ public class CheatController {
 		//글 수정
 		cheatService.updateBoard(cheatVO);
 		
-		return "redirect:/board/list.do";
+		return "redirect:/cheat/list.do";
 	}
 	
 	//======게시판 글 삭제========//
@@ -148,5 +148,14 @@ public class CheatController {
 		cheatService.deleteBoard(che_num);
 		
 		return "redirect:/cheat/list.do";
+	}
+	//관리자가 확인
+	@RequestMapping(value="/cheat/adminCheck.do",method=RequestMethod.POST)
+	public String checkCheatting(@RequestParam int che_num) {
+		
+		//글 수정
+		cheatService.updateCheatByAdmin(che_num);
+		
+		return "redirect:/cheat/detail.do?che_num="+che_num;
 	}
 }

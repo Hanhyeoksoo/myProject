@@ -7,18 +7,22 @@
 <tiles-definitions>
 	<definition name="cheatList" extends="main">
 		<put-attribute name="title" value="신고게시판 목록"/>
+		<put-attribute name="header_content" value="/WEB-INF/views/template/header_sub.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/views/cheat/cheatList.jsp"/>
 	</definition>
 	<definition name="cheatRegister" extends="main">
 		<put-attribute name="title" value="신고게시판 목록"/>
+		<put-attribute name="header_content" value="/WEB-INF/views/template/header_sub.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/views/cheat/cheatWrite.jsp"/>
 	</definition>
 	<definition name="cheatView" extends="main">
 		<put-attribute name="title" value="신고게시판 목록"/>
+		<put-attribute name="header_content" value="/WEB-INF/views/template/header_sub.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/views/cheat/cheatView.jsp"/>
 	</definition>
 		<definition name="cheatModify" extends="main">
 		<put-attribute name="title" value="신고게시판 글 수정"/>
+		<put-attribute name="header_content" value="/WEB-INF/views/template/header_sub.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/views/cheat/cheatModify.jsp"/>
 	</definition>
 </tiles-definitions>

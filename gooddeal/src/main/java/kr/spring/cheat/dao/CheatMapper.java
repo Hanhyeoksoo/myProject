@@ -36,4 +36,8 @@ public interface CheatMapper {
 	//삭제
 	@Delete("DELETE FROM cheat_board WHERE che_num=#{che_num}")
 	public void deleteBoard(Integer cheat_num);
+	
+	//관리자 확인
+	@Update("UPDATE cheat_board SET che_admincheck=2 WHERE che_num=#{che_num}")
+	public void updateCheatByAdmin(Integer che_num);
 }

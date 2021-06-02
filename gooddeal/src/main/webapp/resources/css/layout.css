@@ -38,8 +38,8 @@ div#main_menu ul li{
 
 /*==========페이지 기본 스타일======*/
 .page-main-style{
-	width:98%;
-	margin:0 auto;
+	width:94%;
+	margin:30px auto;
 }
 .one-page{
 	width:600px;
@@ -73,130 +73,130 @@ div#main_menu ul li{
 }
 
 /*목록*/
-form#search_form{
+.page-main-style form#search_form{
 	border: none;
 }
-ul.search{
+.page-main-style ul.search{
 	width:500px;
 	list-style:none;
 	padding:0;
 	margin:0 auto;
 }
-ul.search li{
+.page-main-style ul.search li{
 	margin:0 0 9px 0;
 	padding:0;
 	display:inline;
 }
-.list-space{
+.page-main-style .list-space{
 	width:700px;
 	margin:10px auto;
 }
-table{
+.page-main-style table{
 	width:100%;
 	margin:5px auto;
 	border:1px solid #000;
 	border-collapse:collapse;
 }
-table td, table th{
+.page-main-style table td, table th{
 	border:1px solid #000;
 	padding:5px;
 }
 /*글상세*/
-.detail-img{
+.page-main-style .detail-img{
 	max-width: 500px;
 }
-div#reply_div{
+.page-main-style div#reply_div{
 	padding:5px 10px 40px 10px;
 	margin-top:10px;
 	background-color:#eeeeee;
 }
-#output_fav, .output_rfav{
+.page-main-style #output_fav,.page-main-style  .output_rfav{
 	cursor : pointer;
 }
-#output_fcount{
+.page-main-style #output_fcount{
 	width:50px;
 	display:inline-block;
 }
-form#re_form{
+.page-main-style form#re_form{
 	width:650px;
 	border:none;
 }
-span.re-title{
+.page-main-style span.re-title{
 	color:#000;
 	font-size:12pt;
 	line-height:200%;
 }
-span.letter-count{
+.page-main-style span.letter-count{
 	font-size:10pt;
 	color:#999;
 }
-span.form-id{
+.page-main-style span.form-id{
 	padding-left:93px;
 	color:#000;
 }
-textarea.rep-content{
+.page-main-style textarea.rep-content{
 	width:90%;
 	height:50px;
 	margin:10px 10px;
 }
-div#re_first{
+.page-main-style div#re_first{
 	float:left;
 	width:70%;
 	padding-left:15px;
 	margin-bottom:10px;
 }
-div#re_second{
+.page-main-style div#re_second{
 	float:left;
 	width:19%;
 	margin-bottom:10px;
 }
-div#loading{
+.page-main-style div#loading{
 	width:100px;
 	margin:0 auto;
 }
-div.paging-button{
+.page-main-style div.paging-button{
 	text-align:right;
 }
-div#output{
+.page-main-style div#output{
 	clear:both;
 }
-form#mre_form{
+.page-main-style form#mre_form{
 	border:none;
 	margin:5px;
 }
 /*등록,수정폼*/
-form{
+.page-main-style form{
 	width:500px;
 	margin:0 auto;
 	border:1px solid #000;
 	padding:10px 10px 10px 30px;
 }
-ul{
+.page-main-style ul{
 	list-style:none;
 }
-label{
+.page-main-style label{
 	width:130px;
 	float:left;
 }
-input[type="text"],input[type="password"],input[type="email"]{
+.page-main-style input[type="text"],.page-main-style input[type="password"],.page-main-style input[type="email"]{
 	width:200px;
 }
-#register_form input[id="id"]{
+.page-main-style #register_form input[id="id"]{
 	width:113px;
 }
-input[id="zipcode"]{
+.page-main-style input[id="zipcode"]{
 	width:95px;
 }
-ul.paging-button{
+.page-main-style ul.paging-button{
 	overflow:hidden;
 }
-li.paging-num{
+.page-main-style li.paging-num{
 	float:left;
 	list-style:none;
 	padding:10px;
 	cursor:pointer;
 }
-li.paging-current{
+.page-main-style li.paging-current{
 	float:left;
 	list-style:none;
 	padding:10px;
@@ -207,25 +207,25 @@ li.paging-current{
 	list-style:none;
 }
 /*중고 장터*/
-#wrap{
+.page-main-style #wrap{
 	width:800px;
 	padding-left:40px;
 	overflow:hidden;
 }
-#wrap .list{
+.page-main-style #wrap .list{
 	margin:5px;
 	padding:5px;
 	width:240px;
 	height:150px;
 	float:left;
 }
-#wrap .list img{
+.page-main-style #wrap .list img{
 	width:100%;
 	height:100px;
 }
-a:link {
+.page-main-style a:link {
 	text-decoration: none;
 }
-a:hover {
+.page-main-style a:hover {
 	text-decoration: underline;
 }

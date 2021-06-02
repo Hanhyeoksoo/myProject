@@ -33,6 +33,12 @@
 	</p>
 	<hr size="1" width="100%">
 	<div class="align-right">
+		<c:if test="${!empty user_num && user_now == 3 && cheat.che_admincheck == 1}">
+		<form action="adminCheck.do" method="post" style="border:none;float:left;width:670px;margin-top:-10px">
+		<input type="hidden" name="che_num" value="${cheat.che_num}">
+		<input type="submit" value="관리자 확인">
+		</form>
+		</c:if>
 		<c:if test="${!empty user_num && user_num == cheat.mem_num}">
 		<input type="button" value="수정"
 		 onclick="location.href='update.do?che_num=${cheat.che_num}'">

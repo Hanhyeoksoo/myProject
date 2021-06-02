@@ -52,5 +52,9 @@ public class CheatService {
 	public void deleteBoard(Integer che_num) {
 		cheatMapper.deleteBoard(che_num);
 	}	
+	//관리자 확인
+	public void updateCheatByAdmin(Integer che_num) {
+		cheatMapper.updateCheatByAdmin(che_num);
+	}
 
 }
