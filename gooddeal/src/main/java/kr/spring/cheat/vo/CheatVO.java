@@ -15,9 +15,9 @@ public class CheatVO {
     private int che_view;
     private int che_admincheck;
     private Date che_date;
-    private String mem_id;
+    private String mem_id; //신고자
+    private String che_pid; //고발당한 사람 ID
 
-    
 	public int getChe_num() {
 		return che_num;
 	}
@@ -72,5 +72,10 @@ public class CheatVO {
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
 	}
-
+	public String getChe_pid() {
+		return che_pid;
+	}
+	public void setChe_pid(String che_pid) {
+		this.che_pid = che_pid;
+	}
 };

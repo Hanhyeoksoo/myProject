@@ -19,7 +19,7 @@
 	<h2>${cheat.che_title}</h2>
 	<ul>
 		<li>번호 : ${cheat.che_num}</li>
-		<li>작성자 : ${cheat.mem_id}</li>
+		<li>신고자 : ${cheat.mem_id}</li>
 		<li>조회수 : ${cheat.che_view}</li>
 		<li>작성일 : ${cheat.che_date}</li>
 		<li>관리자 확인 여부 : 
@@ -28,6 +28,7 @@
 		</li>
 	</ul>
 	<hr size="1" width="100%">
+	<p>부정행위자 : ${cheat.che_pid}</p>
 	<p>
 		${cheat.che_content}
 	</p>

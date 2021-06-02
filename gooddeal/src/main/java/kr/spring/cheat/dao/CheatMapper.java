@@ -26,7 +26,7 @@ public interface CheatMapper {
 	public List<CheatVO> selectList(Map<String,Object> map);
 	
 	//상세 페이지
-	@Select("SELECT * FROM cheat_board b JOIN member m ON b.mem_num=m.mem_num WHERE b.che_num=#{che_num}")
+	@Select("SELECT b.*,m.mem_id,p.mem_id che_pid FROM cheat_board b JOIN member m ON b.mem_num=m.mem_num JOIN member p ON b.che_pnum=p.mem_num WHERE b.che_num=#{che_num}")
 	public CheatVO selectBoard(Integer cheat_num);
 	
 	//조회수 증가
