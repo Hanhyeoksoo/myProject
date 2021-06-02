@@ -48,5 +48,8 @@ public class MemberService {
 		memberMapper.deleteMember(mem_num);
 		memberMapper.deleteMember_detail(mem_num);
 	}
-	
+	//포인트 차감
+	public void updateCredit(MemberVO member) {
+		memberMapper.updateCredit(member);
+	}
 }

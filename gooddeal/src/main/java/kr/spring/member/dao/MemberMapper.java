@@ -38,5 +38,7 @@ public interface MemberMapper {
 	public void deleteMember(Integer mem_num);
 	@Delete("DELETE FROM member_detail WHERE mem_num=#{mem_num}")
 	public void deleteMember_detail(Integer mem_num);
+	//포인트 차감
+	public void updateCredit(MemberVO member);
 	
 }
