@@ -207,8 +207,8 @@ div#main_menu ul li{
 }
 /*중고 장터*/
 .page-main-style #wrap{
-	width:800px;
-	padding-left:40px;
+	width:94%;
+	padding-left:70px;
 	overflow:hidden;
 }
 .page-main-style #wrap .list{

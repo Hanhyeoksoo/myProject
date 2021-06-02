@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-6 col-sm-3 logo-column">
                         <a href="${pageContext.request.contextPath}/main/main.do" class="logo">
-                            <img src="${pageContext.request.contextPath}/resources/assets/img/logo.png" alt="logo">
+                            <img src="${pageContext.request.contextPath}/resources/assets/img/logo.png" alt="logo" width="200px" height="100px">
                         </a>
                     </div>
                     <div class="col-6 col-sm-9 nav-column clearfix">

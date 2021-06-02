@@ -7,32 +7,33 @@
 <!-- <style> .carousel-inner > .carousel-item > img{ /* width: 640px; height: 720px; */ } </style>  -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/product.reply.js"></script>
-
+<div class="page-main-style">
 <!-- 중앙 컨텐츠 시작 -->
 	<h2>${product.pro_title}</h2>
 	<hr size="1" width="100%">
-<div class="container"><h2>상품 이미지</h2></div> 
+    <div style="width:600px;margin:20px auto;">
 	<div id="demo" class="carousel slide" data-ride="carousel">
  	<div class="carousel-inner">
  <!-- 슬라이드 쇼 --> 
+        <c:if test="${!empty product.pro_filename1}">
 		<div class="carousel-item active">
 <!--가로-->
-	 		<c:if test="${!empty product.pro_filename1}">
+	 		
 			<img class="d-block w-100" src="imageView.do?pro_num=${product.pro_num}&img_num=1" alt="First slide">
-			</c:if>
 		 <div class="carousel-caption d-none d-md-block"> 
 	  	 </div> 
 	 	 </div> 
+	 	 </c:if>
+	 	 <c:if test="${!empty product.pro_filename2}">
  		<div class="carousel-item">
-			<c:if test="${!empty product.pro_filename2}">
 			<img class="d-block w-100" src="imageView.do?pro_num=${product.pro_num}&img_num=2" alt="Second slide">
-			</c:if>
 		</div> 
+		</c:if>
+		<c:if test="${!empty product.pro_filename3}">
 		<div class="carousel-item"> 
-			<c:if test="${!empty product.pro_filename3}">
 			<img class="d-block w-100" src="imageView.do?pro_num=${product.pro_num}&img_num=3" alt="Third slide">
-			</c:if>
 		</div>
+		</c:if>
 <!-- / 슬라이드 쇼 끝 -->
 <!-- 왼쪽 오른쪽 화살표 버튼 -->
 	<a class="carousel-control-prev" href="#demo" data-slide="prev"> 
@@ -47,6 +48,7 @@
 		<li data-target="#demo" data-slide-to="2"></li> 
 	</ul> 
 <!-- 인디케이터 끝 --> 
+	</div>
 	</div>
 	</div>
 	<hr size="1" width="100%">
@@ -122,4 +124,5 @@
 	<div id="loading" style="display:none;">
 		<img src="${pageContext.request.contextPath}/resources/images/ajax-loader.gif">
 	</div>
+</div>
 <!-- 중앙 컨텐츠 끝 -->

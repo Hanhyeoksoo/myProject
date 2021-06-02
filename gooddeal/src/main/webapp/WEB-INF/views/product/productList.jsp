@@ -26,7 +26,7 @@
 				<div class="align-center">
 					<a href="detail.do?pro_num=${product.pro_num}">
 					<img src="imageView.do?pro_num=${product.pro_num}&img_num=1"
-					                           style="max-width:300px"></a>
+					                           style="width:240px"></a>
 				</div>
 				</c:if>
 			</p>

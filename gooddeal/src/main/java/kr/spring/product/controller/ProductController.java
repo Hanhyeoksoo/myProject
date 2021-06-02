@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.spring.product.service.ProductService;
 import kr.spring.product.vo.ProductVO;
 import kr.spring.util.PagingUtil;
-import kr.spring.util.StringUtil;
+
 
 @Controller
 public class ProductController {

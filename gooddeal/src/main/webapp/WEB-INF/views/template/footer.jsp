@@ -66,14 +66,9 @@
                 </div>
                 <div class="col-md-6 col-lg-3 footer_widget">
                     <div class="inner">
-                        <h4>Address</h4>
-                        <h5>Flat Pro, Inc.</h5>
-                        <p>649 Folsom Ave, Suite 400 <br>San Francisco, CA 63105 <br>P: (123) 456-7890</p>
-                        <h4>Newsletter</h4>
-                        <form action="#" class="nw_form">
-                            <input placeholder="Enter your email" type="email">
-                            <button><i class="fa fa-paper-plane"></i></button>
-                        </form>
+                        <h4>주소</h4>
+                        <h5>(주)이젠아카데미</h5>
+                        <p>1303-37 서초W타워 13층<br>서울특별시 서초구 서초동</p>
                     </div>
                 </div>
             </div>
@@ -84,18 +79,10 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="copyright-txt">
-                        Â© 2017 Flat Pro. All Rights Reserved.
+                        Â© 2021 GoodDeal All Rights Reserved.
                     </div>
                 </div>
-                <div class="col-lg-6 text-right">
-                    <div class="footer-nav">
-                        <a href="#">Home</a>
-                        <a href="#">Portfolio</a>
-                        <a href="#">Pages</a>
-                        <a href="#">Shortcode</a>
-                        <a href="#">Blog</a>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
