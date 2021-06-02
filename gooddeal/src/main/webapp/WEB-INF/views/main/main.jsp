@@ -1,5 +1,119 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- 중고상품 시작 -->
+<div class="portfolio-area sp">
+    <div class="container">
+        <div class="section-title">
+            <h2>Latest Work</h2>
+            <p>Malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+        </div>
+        <div class="row">
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio1.jpg" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio2.jpg" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio3.jpg" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio4.jpg" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio5.jpg" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio6.jpg" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center" data-margin="40px 0 0">
+                <a href="#" class="button">More Works</a>
+            </div>
+        </div>
+    </div>
+</div>    
+<!-- 중고상품 끝 -->    
+    
     <div class="brand-area">
     <div class="container">
         <div class="row">
@@ -117,116 +231,6 @@
                         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div><div class="portfolio-area sp">
-    <div class="container">
-        <div class="section-title">
-            <h2>Latest Work</h2>
-            <p>Malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
-        </div>
-        <div class="row">
-            <div class="single-portfolio col-md-4">
-                <div class="inner">
-                    <div class="portfolio-img">
-                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio1.jpg" alt="portfolio-image">
-                        <div class="hover-content">
-                            <div>
-                                <a href="#" class="button">View Case Study</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <a href="#"><h3>The Back Chiropractor</h3></a>
-                        <span>Ceramics, Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="single-portfolio col-md-4">
-                <div class="inner">
-                    <div class="portfolio-img">
-                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio2.jpg" alt="portfolio-image">
-                        <div class="hover-content">
-                            <div>
-                                <a href="#" class="button">View Case Study</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <a href="#"><h3>The Back Chiropractor</h3></a>
-                        <span>Ceramics, Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="single-portfolio col-md-4">
-                <div class="inner">
-                    <div class="portfolio-img">
-                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio3.jpg" alt="portfolio-image">
-                        <div class="hover-content">
-                            <div>
-                                <a href="#" class="button">View Case Study</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <a href="#"><h3>The Back Chiropractor</h3></a>
-                        <span>Ceramics, Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="single-portfolio col-md-4">
-                <div class="inner">
-                    <div class="portfolio-img">
-                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio4.jpg" alt="portfolio-image">
-                        <div class="hover-content">
-                            <div>
-                                <a href="#" class="button">View Case Study</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <a href="#"><h3>The Back Chiropractor</h3></a>
-                        <span>Ceramics, Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="single-portfolio col-md-4">
-                <div class="inner">
-                    <div class="portfolio-img">
-                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio5.jpg" alt="portfolio-image">
-                        <div class="hover-content">
-                            <div>
-                                <a href="#" class="button">View Case Study</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <a href="#"><h3>The Back Chiropractor</h3></a>
-                        <span>Ceramics, Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="single-portfolio col-md-4">
-                <div class="inner">
-                    <div class="portfolio-img">
-                        <img src="${pageContext.request.contextPath}/resources/assets/img/portfolio6.jpg" alt="portfolio-image">
-                        <div class="hover-content">
-                            <div>
-                                <a href="#" class="button">View Case Study</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <a href="#"><h3>The Back Chiropractor</h3></a>
-                        <span>Ceramics, Design</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center" data-margin="40px 0 0">
-                <a href="#" class="button">More Works</a>
             </div>
         </div>
     </div>
