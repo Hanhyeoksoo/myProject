@@ -13,7 +13,7 @@
 		<li>
 			<div>
 				<h2>회원 상세 정보</h2>
-					<ul>
+					<ul class="align-center">
 					    <c:if test="${!empty member.mem_filename}">
 						<li>
 							<div class="align-center">

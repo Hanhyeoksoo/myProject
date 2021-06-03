@@ -95,7 +95,7 @@
 							<form:errors path="mem_address1" cssClass="error-color"/>
 						</li>
 						<li>
-							<label for="mem_address2">상세주소</label>
+							<label for="mem_address2">상세주소1</label>
 							<form:input path="mem_address2"/>
 							<form:errors path="mem_address2" cssClass="error-color"/>
 						</li>
@@ -106,7 +106,7 @@
 						</li>
 					</ul>
 					<div class="align-center">
-						<form:button>전송</form:button>
+						<form:button>변경</form:button>
 						<input type="button" value="MyPage" onclick="location.href='myPage.do'">
 					</div>
 				</form:form>

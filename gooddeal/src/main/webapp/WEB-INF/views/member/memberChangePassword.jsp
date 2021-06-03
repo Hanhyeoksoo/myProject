@@ -41,7 +41,7 @@
 							<form:errors path="mem_password" cssClass="error-color"/>
 						</li>
 						<li>
-							<label for="mem_password2">변경할 비밀번호</label>
+							<label for="mem_password2">비밀번호 확인</label>
 							<form:password path="mem_password2"/>
 						</li>
 					</ul>

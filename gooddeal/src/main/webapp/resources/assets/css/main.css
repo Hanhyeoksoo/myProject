@@ -320,7 +320,7 @@ form.search-form button {
   background: transparent;
   height: 100%; }
 
-#menu ul {
+# ul {
   text-align: right;
   margin: 0; }
   #menu ul li.has-child > a::after {

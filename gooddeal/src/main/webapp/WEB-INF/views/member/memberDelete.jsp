@@ -28,7 +28,7 @@
 						</li>
 					</ul>
 					<div class="align-center">
-						<form:button>전송</form:button>
+						<form:button>탈퇴</form:button>
 						<input type="button" value="MyPage" onclick="location.href='myPage.do'">
 					</div>
 				</form:form>

@@ -174,7 +174,7 @@
 				<form:errors path="mem_address1" cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="mem_address2">상세주소</label>
+				<label for="mem_address2">상세주소1</label>
 				<form:input path="mem_address2"/>
 				<form:errors path="mem_address2" cssClass="error-color"/>
 			</li>
