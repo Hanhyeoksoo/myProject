@@ -13,7 +13,8 @@
 			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/추석맞이이벤트.jpg" width="310" height="210"></a>
 			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/본죽.jpg" width="310" height="210"></a>
 			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/회원가입.jpg" width="310" height="210"></a>
-			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/회원가입.jpg" width="310" height="210"></a>
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/5월.jpg" width="310" height="210"></a>
+			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/스포츠.jpg" width="310" height="210"></a>
 		</ul>
 	</div>
 </div>

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import kr.spring.event.service.EventService;
 import kr.spring.event.vo.EventVO;
 import kr.spring.util.PagingUtil;
@@ -110,5 +111,12 @@ public class EventController {
 			
 			return mav;
 		}
-	
+		@RequestMapping("/event/detail.do")
+		public ModelAndView detail(@RequestParam int eve_num) {
+			EventVO board = eventService.selectBoard(eve_num);
+									//뷰 이름			속성명	속성값
+			return new ModelAndView("eventDoDetail","board",board);
+		}
+		
+		
 	}
