@@ -21,12 +21,23 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.event.service.EventService;
 import kr.spring.event.vo.EventVO;
+import kr.spring.product.vo.ProductVO;
 import kr.spring.util.PagingUtil;
 
 @Controller
 public class EventController {
 
 	private Logger log = Logger.getLogger(this.getClass());
+	
+	//의존 관계 설정
+	@Resource
+	private EventService eventService;
+	
+	//자바빈(VO) 초기화
+	@ModelAttribute("eventVO")
+	public EventVO initCommand() {
+		return new EventVO();
+	}
 	
 	//목록
 		@RequestMapping("/event/list.do")
@@ -40,17 +51,9 @@ public class EventController {
 		@RequestMapping(value="/event/eventDo.do",method=RequestMethod.GET)
 		public String eventdo() {
 			return "eventDo";
-		}	
-	
-	//의존 관계 설정
-		@Resource
-		private EventService eventService;
-		
-		//자바빈(VO) 초기화
-		@ModelAttribute("eventVO")
-		public EventVO initCommand() {
-			return new EventVO();
 		}
+		
+
 
 		@RequestMapping(value="/event/eventCheck.do",method=RequestMethod.GET)
 		public String form() {
