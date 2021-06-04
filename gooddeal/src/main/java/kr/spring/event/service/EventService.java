@@ -34,13 +34,13 @@ public class EventService {
 	}
 	
 	//글 상세 페이지
-	public EventVO selectBoard(Integer board_num) {
-		return eventMapper.selectBoard(board_num);
+	public EventVO selectBoard(Integer eve_num) {
+		return eventMapper.selectBoard(eve_num);
 	}
 	
 	//조회수 증가
-	public void updateHit(Integer board_num) {
-		eventMapper.updateHit(board_num);
+	public void updateHit(Integer eve_num) {
+		eventMapper.updateHit(eve_num);
 	}
 	
 	//글 수정
@@ -49,8 +49,10 @@ public class EventService {
 	}
 	
 	//글 삭제
-	public void deleteBoard(Integer board_num) {
-		eventMapper.deleteBoard(board_num);
+	public void deleteBoard(Integer eve_num) {
+		eventMapper.deleteBoard(eve_num);
 	}	
+	
+	
 
 }

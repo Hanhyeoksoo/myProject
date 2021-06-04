@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.event.dao.EventMapper">
+	<!-- 총 레코드 수 -->
+	<select id="selectRowCount" resultType="integer">
+		SELECT
+		   COUNT(*)
+		FROM event b
+		JOIN member m
+		ON b.mem_num = m.mem_num
+	</select>
+	<!-- 글 목록 -->
+	<select id="selectList" parameterType="map"
+	                                   resultType="eventVO">
+		SELECT
+		   *
+		FROM (SELECT 
+		        a.*,
+		        rownum rnum
+		      FROM(SELECT
+		              b.eve_num,
+		              <![CDATA[
+		              REPLACE(REPLACE(b.title,'<','&lt;'),'>','&gt;') title,
+		              ]]>
+		              b.hit,
+		              b.eve_date,
+		              b.mem_num,
+		              m.mem_id
+		           FROM event b
+		           JOIN member m
+		           ON b.mem_num=m.mem_num
+		           ORDER BY b.eve_num DESC)a)
+    	<![CDATA[
+    	WHERE rnum >= #{start} AND rnum <= #{end}
+    	]]>
+	</select>
+	<!-- 글 수정 -->
+	<update id="updateBoard" parameterType="EventVO">
+		UPDATE event SET
+			<if test="filename != ''">
+			uploadfile=#{uploadfile},
+			filename=#{filename},
+			</if>	
+			title=#{title},
+			content=#{content},
+			ip=#{ip},
+			eve_date=SYSDATE
+		WHERE eve_num=#{eve_num}
+	</update>
+</mapper>
+
+
+
+
+
+
+
