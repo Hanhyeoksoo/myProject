@@ -26,14 +26,14 @@ public interface EventMapper {
 	public List<EventVO> selcetList(Map<String,Object> map);
 	
 	//상세 페이지
-	@Select("SELECT * FROM event b JOIN eve_num m ON b.mem_num WHERE b.board_num=#{board_num}")
-	public EventVO selectBoard(Integer board_num);
+	@Select("SELECT * FROM event b JOIN eve_num m ON b.mem_num WHERE b.eve_num=#{eve_num}")
+	public EventVO selectBoard(Integer eve_num);
 	
 	//조회수 증가
-	@Update("UPDATE event SET hit=hit+1 WHERE board_num=#{board_num}")
+	@Update("UPDATE event SET hit=hit+1 WHERE eve_num=#{eve_num}")
 	public void updateHit(Integer board_num);
 	
 	//삭제
-	@Delete("DELETE FROM sprboard WHERE board_num=#{board_num}")
-	public void deleteBoard(Integer board_num);
+	@Delete("DELETE FROM event WHERE eve_num=#{eve_num}")
+	public void deleteBoard(Integer eve_num);
 }
