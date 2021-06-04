@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div class="hero-slider">
-    <div class="single-slide" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/slide_2.png)">
+    <div class="single-slide" style="background-image: url(${pageContext.request.contextPath}/resources/assets/img/gd_main.jpg)">
       <div class="inner">
         <div class="container">
           <div class="row">
