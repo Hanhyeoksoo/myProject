@@ -53,19 +53,19 @@
 	</div>
 	<hr size="1" width="100%">
 	<ul>
-		<li>판매자 : ${product.mem_id}</li>
-		<li>연관 태그 : ${product.pro_tag}</li>
-		<li>상품 금액 : ${product.pro_price}</li>
-		<li>상품 상태 : 
+		<li><b>판매자</b> : ${product.mem_id}</li>
+		<li><b>연관 태그</b> : ${product.pro_tag}</li>
+		<li><b>상품 금액</b> : ${product.pro_price}</li>
+		<li><b>상품 상태</b> : 
 		<c:if test="${product.pro_status == 1}">새상품</c:if>
 		<c:if test="${product.pro_status == 2}">중고</c:if>
 		</li>
-		<li>판매 상태 : 
+		<li><b>판매 상태</b> : 
 		<c:if test="${product.pro_buy == 1}">판매중</c:if>
 		<c:if test="${product.pro_buy == 2}">판매완료</c:if>
 		<c:if test="${product.pro_buy == 3}">판매중지</c:if>
 		</li>
-		<li>작성일 : ${product.pro_date}</li>
+		<li><b>작성일</b> : ${product.pro_date}</li>
 	</ul>
 	
 	<hr size="1" width="100%">
@@ -76,9 +76,9 @@
 	<hr size="1" width="100%">
 	<div class="align-right">
 		<c:if test="${!empty user_num && user_num == product.mem_num}">
-		<input type="button" value="수정"
+		<input class="button" type="button" value="수정"
 		 onclick="location.href='update.do?pro_num=${product.pro_num}'">
-		<input type="button" value="삭제" id="delete_btn">
+		<input class="button" type="button" value="삭제" id="delete_btn">
 		<script type="text/javascript">
 			var delete_btn = document.getElementById('delete_btn');
 			//이벤트 연결
@@ -90,7 +90,7 @@
 			};
 	</script>
 		</c:if>
-		<input type="button" value="목록으로"
+		<input class="button" type="button" value="목록으로"
 		                        onclick="location.href='list.do'">
 	</div>
 	<hr size="1" width="100%">
