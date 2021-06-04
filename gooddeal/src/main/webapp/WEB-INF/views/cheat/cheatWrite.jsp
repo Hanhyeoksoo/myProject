@@ -4,9 +4,12 @@
 <!-- 중앙 컨텐츠 시작 -->
 <div class="page-main-style">
 	<h2>글쓰기</h2>
-	<form:form action="write.do" commandName="cheatVO">
-		<input type="hidden" name="che_pnum" value="41">
+	<form:form action="writePro.do" commandName="cheatVO">
 		<ul>
+			<li>
+				<label>부정판매자</label>
+				<form:hidden path="che_pnum"/>${cheatVO.mem_id}
+			</li>
 			<li>
 				<label for="che_title">제목</label>
 				<form:input path="che_title"/>

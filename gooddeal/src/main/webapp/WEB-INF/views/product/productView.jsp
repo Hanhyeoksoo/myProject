@@ -7,6 +7,13 @@
 <!-- <style> .carousel-inner > .carousel-item > img{ /* width: 640px; height: 720px; */ } </style>  -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/product.reply.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#cheat_btn').click(function(){
+			$('#cheat_form').submit();
+		});
+	});
+</script>
 <div class="page-main-style">
 <!-- 중앙 컨텐츠 시작 -->
 	<h2>${product.pro_title}</h2>
@@ -53,7 +60,11 @@
 	</div>
 	<hr size="1" width="100%">
 	<ul>
-		<li><b>판매자</b> : ${product.mem_id}</li>
+		<li><b>판매자</b> : ${product.mem_id} 
+		<c:if test="${product.mem_num != user_num}">
+		<input type="button" value="신고" id="cheat_btn">
+		</c:if>
+		</li>
 		<li><b>연관 태그</b> : ${product.pro_tag}</li>
 		<li><b>상품 금액</b> : ${product.pro_price}</li>
 		<li><b>상품 상태</b> : 
@@ -67,7 +78,10 @@
 		</li>
 		<li><b>작성일</b> : ${product.pro_date}</li>
 	</ul>
-	
+	<form action="${pageContext.request.contextPath}/cheat/write.do" id="cheat_form" method="post" style="border:none;">
+		<input type="hidden" name="che_pnum" value="${product.mem_num}">
+		<input type="hidden" name="mem_id" value="${product.mem_id}">
+	</form>
 	<hr size="1" width="100%">
 	<div>
 		<h2>상품 내용</h2>

@@ -37,11 +37,6 @@ public class CheatController {
 	@Resource
 	private MemberService memberService;
 	
-	@ModelAttribute
-	public CheatVO initCommand() {
-		return new CheatVO();
-	}
-	
 	//목록
 	@RequestMapping("/cheat/list.do")
 	public ModelAndView process(
@@ -96,12 +91,13 @@ public class CheatController {
 	}
 	
 	//글쓰기
-	@RequestMapping(value="/cheat/write.do",method=RequestMethod.GET)
-	public String form() {
+	@RequestMapping(value="/cheat/write.do",method=RequestMethod.POST)
+	public String form(CheatVO cheatVO) {
+		
 		return "cheatRegister";
 	}
 	
-	@RequestMapping(value="/cheat/write.do",method=RequestMethod.POST)
+	@RequestMapping(value="/cheat/writePro.do",method=RequestMethod.POST)
 	public String submit(@Valid CheatVO cheatVO,
 			             BindingResult result,
 			             HttpServletRequest request,
