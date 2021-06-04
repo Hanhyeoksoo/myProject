@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.board.service.BoardService;
+import kr.spring.board.vo.BoardVO;
 import kr.spring.product.service.ProductService;
 import kr.spring.product.vo.ProductVO;
 import kr.spring.util.PagingUtil;
@@ -24,6 +26,8 @@ public class MainController {
 	//의존 관계 설정
 	@Resource
 	private ProductService productService;
+	@Resource
+	private BoardService boardService;
 
 	//자바빈(VO) 초기화
 	@ModelAttribute("productVO")
@@ -31,37 +35,31 @@ public class MainController {
 		return new ProductVO();
 	}
 	//상품 목록
-		@RequestMapping("/main/main.do")
-		public ModelAndView process(
-				@RequestParam(value="pageNum",defaultValue="1") int currentPage,
-				@RequestParam(value="keyword",defaultValue="") String keyword) {
+	@RequestMapping("/main/main.do")
+	public ModelAndView process(
+			@RequestParam(value="pageNum",defaultValue="1") int currentPage,
+			@RequestParam(value="keyword",defaultValue="") String keyword) {
 
-			Map<String,Object> map = new HashMap<String,Object>();
-			map.put("keyword", keyword);
-			//총 레코드 수
-			int count = productService.selectRowCount(map);
+		//중고 상품
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("keyword", keyword);
+		map.put("start", 1);
+		map.put("end", 6);
+		List<ProductVO> list = productService.selectList(map);
 
-			if(log.isDebugEnabled()) {
-				log.debug("<<pageNum>> : " + currentPage);
-				log.debug("<<count>> : " + count);
-			}
+		//게시판
+		Map<String,Object> board_map = new HashMap<String,Object>();
+		board_map.put("start", 1);
+		board_map.put("end", 3);
+		List<BoardVO> board_list = boardService.selectList(board_map);
 
-			//페이징 처리
-			PagingUtil page = 
-					new PagingUtil(currentPage,count,6,10,"list.do","&keyword="+keyword);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main");
+		mav.addObject("list",list);
+		mav.addObject("board_list",board_list);
 
-			List<ProductVO> list = null;
-			if(count > 0) {
-				map.put("start", page.getStartCount());
-				map.put("end", page.getEndCount());
-				list = productService.selectList(map);
-			}
+		return mav;
+	}
 
-			ModelAndView mav = new ModelAndView();
-			mav.setViewName("main");
-			mav.addObject("list",list);
-
-			return mav;
-		}
 
 }

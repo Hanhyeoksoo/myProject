@@ -8,7 +8,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Flat Pro || Buisness HTML template</title>
+   	<link rel="favicon" href="${pageContext.request.contextPath}/resources/assets/css/gooddeal_1.ico">
+    <title>GoodDeal</title>
 
         <!-- Required CSS files -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
@@ -27,8 +28,8 @@
         <span class="preloader-spin"></span>
     </div>
     <div class="site">
-	     <tiles:insertAttribute name="header"/>     
-	     <tiles:insertAttribute name="header_content"/>       
+	    <tiles:insertAttribute name="header"/>     
+	    <tiles:insertAttribute name="header_content"/>       
 		<tiles:insertAttribute name="body"/>   
 		<tiles:insertAttribute name="footer"/>
 	</div>

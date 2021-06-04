@@ -17,21 +17,16 @@
                                 <input type="search" placeholder="상품명 입력" name="keyword">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
-                            <div class="header-social">
-                                <a href="#" class="fa fa-facebook"></a>
-                                <a href="#" class="fa fa-twitter"></a>
-                                <a href="#" class="fa fa-github"></a>
-                            </div>
                         </div>
                         <nav id="menu" class="d-none d-lg-block">
                             <ul>
                                 <li class="current-menu-item">
                                     <a href="${pageContext.request.contextPath}/main/main.do">Home</a>
                                 </li>
+                               <li><a href="${pageContext.request.contextPath}/product/list.do">중고장터</a></li>
                                <li><a href="${pageContext.request.contextPath}/board/list.do">자유게시판</a></li>
+                               <li><a href="${pageContext.request.contextPath}/event/list.do">이벤트게시판</a></li>
 								<li><a href="${pageContext.request.contextPath}/cheat/list.do">신고게시판</a></li>
-								<li><a href="${pageContext.request.contextPath}/event/list.do">이벤트게시판</a></li>
-								<li><a href="${pageContext.request.contextPath}/product/list.do">중고장터</a></li>
                                 <c:if test="${!empty user_num}">
 									<li><a href="${pageContext.request.contextPath}/member/logout.do">[<span class="user_name">${user_id}</span>]로그아웃</a></li>
 									<li><a href="${pageContext.request.contextPath}/member/myPage.do">MY페이지</a></li>

@@ -7,59 +7,58 @@
             <div class="row">
                 <div class="col-md-6 col-lg-3 footer_widget">
                     <div class="inner">
-                        <h4>About</h4>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                        <p>Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, antesenectus et netus et malesuada fames ac turpis egestas.</p>
+                        <h4>소개</h4>
+                        <p>중고거래로 새로운 가치를 창조하세요.</p>
+                        <p>중고 거래부터 동네 정보까지, 이웃과 함께해요. 가깝고 따뜻한 당신의 근처를 만들어요.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 footer_widget">
                     <div class="inner">
-                        <h4>Company</h4>
+                        <h4>회사</h4>
                         <ul>
-                            <li><a href="#">Company Overview</a></li>
-                            <li><a href="#">Meet The Team</a></li>
-                            <li><a href="#">Our Awesome Partners</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Frequently Asked Questions</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">회사 정보</a></li>
+                            <li><a href="#">회사 부서</a></li>
+                            <li><a href="#">제휴사</a></li>
+                            <li><a href="#">제공 서비스</a></li>
+                            <li><a href="#">자주 묻는 질문</a></li>
+                            <li><a href="#">contact</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 footer_widget">
                     <div class="inner">
-                        <h4>Recent Posts</h4>
+                        <h4>제휴사</h4>
                         <div class="media">
                             <a href="#">
-                                <img src="${pageContext.request.contextPath}/resources/assets/img/recent1.jpg" class="d-flex mr-3" alt="">
+                                <img src="${pageContext.request.contextPath}/resources/assets/img/당근마켓.png" class="d-flex mr-3" alt="">
                             </a>
                             <div class="media-body">
                                 <h5>
-                                    <a href="#">Curling irons are as individual as the women</a>
+                                    <a href="#">국내 1등 동네 커뮤니티, 당근마켓</a>
                                 </h5>
-                                <span>June 22, 2017</span>
+                                <span>June 21, 2020</span>
                             </div>
                         </div>
                         <div class="media">
                             <a href="#">
-                                <img src="${pageContext.request.contextPath}/resources/assets/img/recent2.jpg" class="d-flex mr-3" alt="">
+                                <img src="${pageContext.request.contextPath}/resources/assets/img/번개장터.png" class="d-flex mr-3" alt="">
                             </a>
                             <div class="media-body">
                                 <h5>
-                                    <a href="#">Curling irons are as individual as the women</a>
+                                    <a href="#">취향을 잇는 거래, <br>번개장터</a>
                                 </h5>
-                                <span>June 22, 2017</span>
+                                <span>Oct 15, 2015</span>
                             </div>
                         </div>
                         <div class="media">
                             <a href="#">
-                                <img src="${pageContext.request.contextPath}/resources/assets/img/recent3.jpg" class="d-flex mr-3" alt="">
+                                <img src="${pageContext.request.contextPath}/resources/assets/img/중고나라.png" class="d-flex mr-3" alt="">
                             </a>
                             <div class="media-body">
                                 <h5>
-                                    <a href="#">Curling irons are as individual as the women</a>
+                                    <a href="#">어서오세요. 중고나라</a>
                                 </h5>
-                                <span>June 22, 2017</span>
+                                <span>June 4, 2021</span>
                             </div>
                         </div>
                     </div>

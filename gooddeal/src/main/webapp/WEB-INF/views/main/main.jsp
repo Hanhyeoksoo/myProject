@@ -31,70 +31,30 @@
 	</div>
 </div>    
 <!-- 중고상품 끝 -->    
-
+<!-- 자유게시판 시작 -->
 <div class="testimonial-area sp bg1">
     <div class="container">
         <div class="section-title white">
-            <h2>자유게시판 꼭 와주세요</h2>
-            <p>Malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+            <h2>자유게시판</h2>
+            <p>동네 맛집, 볼거리 등 자유롭게 정보를 공유하세요.</p>
         </div>
         <div class="testimonial-slider">
+             <c:forEach var="board" items="${board_list}">
             <div class="single-slide">
                 <div class="inner">
-                    <p>When I was just starting 6th grade I got my first job. Paperboy! Boy, was I excited. At that time I had spent a lot of time actually playing the video official.</p>
                     <div class="client-info">
                         <div class="client-img">
-                            <img src="${pageContext.request.contextPath}/resources/assets/img/client.jpg" alt="client">
+                            <a href="${pageContext.request.contextPath}/board/detail.do?board_num=${board.board_num}"><img src="${pageContext.request.contextPath}/board/imageView.do?board_num=${board.board_num}"></a>
                         </div>
                         <div class="client-data">
-                            <h4>Jhon Doe</h4>
-                            <span>Designer</span>
+                            <h4><a href="${pageContext.request.contextPath}/board/detail.do?board_num=${board.board_num}">${board.title}</a></h4>
+                            <a href="${pageContext.request.contextPath}/board/detail.do?board_num=${board.board_num}"><span>${board.id}</span></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="single-slide">
-                <div class="inner">
-                    <p>When I was just starting 6th grade I got my first job. Paperboy! Boy, was I excited. At that time I had spent a lot of time actually playing the video official.</p>
-                    <div class="client-info">
-                        <div class="client-img">
-                            <img src="${pageContext.request.contextPath}/resources/assets/img/client.jpg" alt="client">
-                        </div>
-                        <div class="client-data">
-                            <h4>Jhon Doe</h4>
-                            <span>Designer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single-slide">
-                <div class="inner">
-                    <p>When I was just starting 6th grade I got my first job. Paperboy! Boy, was I excited. At that time I had spent a lot of time actually playing the video official.</p>
-                    <div class="client-info">
-                        <div class="client-img">
-                            <img src="${pageContext.request.contextPath}/resources/assets/img/client.jpg" alt="client">
-                        </div>
-                        <div class="client-data">
-                            <h4>Jhon Doe</h4>
-                            <span>Designer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single-slide">
-                <div class="inner">
-                    <p>When I was just starting 6th grade I got my first job. Paperboy! Boy, was I excited. At that time I had spent a lot of time actually playing the video official.</p>
-                    <div class="client-info">
-                        <div class="client-img">
-                            <img src="${pageContext.request.contextPath}/resources/assets/img/client.jpg" alt="client">
-                        </div>
-                        <div class="client-data">
-                            <h4>Jhon Doe</h4>
-                            <span>Designer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>  
 </div>
+<!-- 자유게시판 시작 -->
