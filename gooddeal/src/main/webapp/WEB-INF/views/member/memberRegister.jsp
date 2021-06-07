@@ -139,7 +139,7 @@
 			<li>
 				<label for="mem_id">아이디</label>
 				<form:input path="mem_id"/>
-				<input type="button" id="confirmId" value="ID중복체크">
+				<input class="button" type="button" id="confirmId" value="ID중복체크">
 				<span id="message_id"></span>
 				<form:errors path="mem_id" cssClass="error-color"/>
 			</li>
@@ -165,7 +165,7 @@
 			</li>
 			<li>
 				<label for="mem_zipcode">우편번호</label>
-				<form:input path="mem_zipcode"/><input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+				<form:input path="mem_zipcode"/><input class="button" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 				<form:errors path="mem_zipcode" cssClass="error-color"/>
 			</li>
 			<li>
@@ -185,8 +185,8 @@
 			</li>
 		</ul>
 		<div class="align-center">
-			<form:button>회원가입</form:button>
-			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+			<form:button class="button">회원가입</form:button>
+			<input class="button" type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 		</div>
 </form:form>
 </div>

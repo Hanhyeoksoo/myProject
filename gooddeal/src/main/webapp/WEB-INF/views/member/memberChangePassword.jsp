@@ -18,10 +18,10 @@
 <div class="page-main-style">
 	<ul>
 		<li>
-			<input type="button" value="정보 수정" onclick="location.href='update.do'">
-			<input type="button" value="비밀번호 변경" onclick="location.href='changePassword.do'">
-			<input type="button" value="회원 탈퇴" onclick="location.href='delete.do'">
-			<input type="button" value="판매내역" onclick="location.href='mysell.do'">	
+			<input class="button" type="button" value="정보 수정" onclick="location.href='update.do'">
+			<input class="button" type="button" value="비밀번호 변경" onclick="location.href='changePassword.do'">
+			<input class="button" type="button" value="회원 탈퇴" onclick="location.href='delete.do'">
+			<input class="button" type="button" value="판매내역" onclick="location.href='mysell.do'">	
 			<hr width="100%" size="1" noshade="noshade">
 		</li>
 		<li>
@@ -46,8 +46,8 @@
 						</li>
 					</ul>
 					<div class="align-center">
-						<form:button>변경</form:button>
-						<input type="button" value="MyPage" onclick="location.href='myPage.do'">
+						<form:button class="button">변경</form:button>
+						<input class="button" type="button" value="MyPage" onclick="location.href='myPage.do'">
 					</div>
 				</form:form>
 			</div>
