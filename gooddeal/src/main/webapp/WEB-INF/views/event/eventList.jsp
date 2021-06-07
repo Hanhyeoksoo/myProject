@@ -7,7 +7,6 @@
 	<a href="eventCheck.do">이벤트 당첨자 확인</a>
 	<div>
 		<ul>
-			<li>판매자 순위</li>
 			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/버거.jpg" width="310" height="210"></a>
 			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/추석맞이이벤트.jpg" width="310" height="210"></a>
 			<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/본죽.jpg" width="310" height="210"></a>

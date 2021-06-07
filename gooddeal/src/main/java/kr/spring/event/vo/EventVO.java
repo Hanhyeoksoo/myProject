@@ -80,12 +80,7 @@ public class EventVO {
 		this.eve_status = eve_status;
 	}
 	
-	@Override
-	public String toString() {
-		return "EventVO [eve_num=" + eve_num + ", mem_num=" + mem_num + ", eve_title=" + eve_title + ", eve_content="
-				+ eve_content + ", eve_user=" + eve_user + ", eve_start=" + eve_start + ", eve_end=" + eve_end
-				+ ", eve_date=" + eve_date + ", eve_status=" + eve_status + "]";
-	}
+
 	public void setIp(String remoteAddr) {
 		// TODO Auto-generated method stub
 		

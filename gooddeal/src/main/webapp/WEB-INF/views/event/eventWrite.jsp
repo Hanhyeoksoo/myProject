@@ -5,7 +5,7 @@
 <div class="page-main-style">
 	<h2>상품 등록</h2>
 	<form:form action="write.do" commandName="eventVO"
-	               enctype="multipart/form-data">
+									enctype="multipart/form-data">
 		<ul>
 			<li>
 				<label for="pro_title">상품 제목</label>
