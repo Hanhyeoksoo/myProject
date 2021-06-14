@@ -25,7 +25,6 @@
                                 </li>
                                <li><a href="${pageContext.request.contextPath}/product/list.do">중고장터</a></li>
                                <li><a href="${pageContext.request.contextPath}/board/list.do">자유게시판</a></li>
-                               <li><a href="${pageContext.request.contextPath}/event/list.do">이벤트게시판</a></li>
                                <li><a href="${pageContext.request.contextPath}/eve/list.do">이벤트게시판</a></li>
 								<li><a href="${pageContext.request.contextPath}/cheat/list.do">신고게시판</a></li>
                                 <c:if test="${!empty user_num}">

@@ -15,7 +15,7 @@
 				<form:errors path="eve_title" cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="eve_tag">연관 태그</label>
+				<label for="eve_tag">이벤트 기간</label>
 				<form:input path="eve_tag"/>
 				<form:errors path="eve_tag" cssClass="error-color"/>
 			</li>

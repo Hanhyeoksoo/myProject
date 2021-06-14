@@ -17,7 +17,7 @@
 	    <div class="container">
 	        <div class="section-title">
 	            <h2>이벤트 목록</h2>
-	            <p>최근에 등록된 이벤트 입니다.</p>
+	            <p>등록된 이벤트 입니다.</p>
 	        </div>
 	        <div class="row">
 	           <c:forEach var="eve" items="${list}">
@@ -27,13 +27,13 @@
 	                        <img src="${pageContext.request.contextPath}/eve/imageView.do?eve_num=${eve.eve_num}&img_num=1">
 	                        <div class="hover-content">
 	                            <div>
-	                                <a href="${pageContext.request.contextPath}/eve/detail.do?eve_num=${eve.eve_num}" class="button">상품 보기</a>
+	                                <a href="${pageContext.request.contextPath}/eve/detail.do?eve_num=${eve.eve_num}" class="button">이벤트 보기</a>
 	                            </div>
 	                        </div>
 	                    </div>
 	                    <div class="portfolio-content">
 	                        <a href="detail.do?eve_num=${eve.eve_num}"><h3>${eve.eve_title}</h3></a>
-	                        <a href="detail.do?eve_num=${eve.eve_num}"><span>${eve.eve_price}</span></a>
+	                        <%-- <a href="detail.do?eve_num=${eve.eve_num}"><span>${eve.eve_price}</span></a> --%>
 	                    </div>
 	                </div>
 	            </div>
@@ -43,7 +43,7 @@
 	</div>  
 
 	<c:if test="${count == 0 }">
-	<div class="align-center">등록된 상품이 없습니다.</div>
+	<div class="align-center">등록된 이벤트가 없습니다.</div>
 	</c:if>
 	<c:if test="${count > 0 }">
 

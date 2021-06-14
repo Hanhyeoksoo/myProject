@@ -60,23 +60,16 @@
 	</div>
 	<hr size="1" width="100%">
 	<ul>
-		<li><b>판매자</b> : ${eve.mem_id} 
+		<li><b>운영자</b> : ${eve.mem_id} 
 		<c:if test="${eve.mem_num != user_num}">
 		<input type="button" value="신고" id="cheat_btn">
 		</c:if>
 		</li>
-		<li><b>연관 태그</b> : ${eve.eve_tag}</li>
-		<li><b>상품 금액</b> : ${eve.eve_price}</li>
-		<li><b>상품 상태</b> : 
-		<c:if test="${eve.eve_status == 1}">새상품</c:if>
-		<c:if test="${eve.eve_status == 2}">중고</c:if>
+		<li><b>이벤트 기간</b> : ${eve.eve_tag}</li>
+		<li><b>이벤트 상태</b> : 
+		<c:if test="${eve.eve_status == 1}">진행중</c:if>
+		<c:if test="${eve.eve_status == 2}">종료</c:if>
 		</li>
-		<li><b>판매 상태</b> : 
-		<c:if test="${eve.eve_buy == 1}">판매중</c:if>
-		<c:if test="${eve.eve_buy == 2}">판매완료</c:if>
-		<c:if test="${eve.eve_buy == 3}">판매중지</c:if>
-		</li>
-		<li><b>작성일</b> : ${eve.eve_date}</li>
 	</ul>
 	<form action="${pageContext.request.contextPath}/cheat/write.do" id="cheat_form" method="post" style="border:none;">
 		<input type="hidden" name="che_pnum" value="${eve.mem_num}">
@@ -84,7 +77,7 @@
 	</form>
 	<hr size="1" width="100%">
 	<div>
-		<h2>상품 내용</h2>
+		<h2>이벤트 내용</h2>
 		<p>${eve.eve_content}</p>
 	</div>
 	<hr size="1" width="100%">

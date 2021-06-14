@@ -8,29 +8,24 @@
 	               enctype="multipart/form-data">
 		<ul>
 			<li>
-				<label for="eve_title">상품 제목</label>
+				<label for="eve_title">이벤트 제목</label>
 				<form:input path="eve_title"/>
 				<form:errors path="eve_title" cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="eve_tag">연관 태그</label>
+				<label for="eve_tag">이벤트 기간</label>
 				<form:input path="eve_tag"/>
 				<form:errors path="eve_tag" cssClass="error-color"/>
 			</li>
 			<li>
-				<label for="eve_price">상품 금액</label>
-				<form:input path="eve_price"/>
-				<form:errors path="eve_price" cssClass="error-color"/>
-			</li>
-			<li>
-				<label for="eve_content">상품 내용</label>
+				<label for="eve_content">이벤트 내용</label>
 				<form:textarea path="eve_content" cols="50" rows="5"/>
 				<form:errors path="eve_content" cssClass="error-color"/>
 			</li>
 			<li>	
-				<label for="eve_status">상품 상태</label>
-				<form:radiobutton path="eve_status" value="1" />새제품
-				<form:radiobutton path="eve_status" value="2" />중고
+				<label for="eve_status">이벤트 상태</label>
+				<form:radiobutton path="eve_status" value="1" />진행중
+				<form:radiobutton path="eve_status" value="2" />종료
 				<form:errors path="eve_status" cssClass="error-color"/>
 			</li>
 			<li>	
@@ -44,13 +39,6 @@
 			<li>	
 				<label for="upload3">이미지3</label>
 				<input type="file" name="upload3" id="upload3" />
-			</li>
-			<li>	
-				<label for="eve_buy">판매 상태</label>
-				<form:radiobutton path="eve_buy" value="1" />판매중
-				<form:radiobutton path="eve_buy" value="2" />판매완료
-				<form:radiobutton path="eve_buy" value="3" />판매중지
-				<form:errors path="eve_buy" cssClass="error-color"/>
 			</li>
 		</ul>
 		<div class="align-center">
