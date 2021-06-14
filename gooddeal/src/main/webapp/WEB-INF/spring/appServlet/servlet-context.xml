@@ -32,6 +32,7 @@
 				<beans:value>messages.board</beans:value>
 				<beans:value>messages.cheat</beans:value>
 				<beans:value>messages.event</beans:value>
+				<beans:value>messages.eve</beans:value>
 				<beans:value>messages.member</beans:value>
 				<beans:value>messages.product</beans:value>
 				<beans:value>messages.reply</beans:value>
@@ -48,9 +49,11 @@
 				<beans:value>/WEB-INF/tiles-def/board.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/cheat.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/event.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/eve.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/member.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/product.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/reply.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/reply2.xml</beans:value>
 			</beans:list>
 		</beans:property>  
 	</beans:bean>

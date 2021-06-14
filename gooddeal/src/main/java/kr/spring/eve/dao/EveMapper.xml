@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.eve.dao.EveMapper">
+	<!-- 총 레코드 수 -->
+	<select id="selectRowCount" resultType="integer">
+		SELECT
+		   COUNT(*)
+		FROM eve p
+		JOIN member m
+		ON p.mem_num = m.mem_num
+		<where>
+			<if test="keyword != ''">
+			p.eve_title LIKE '%' || #{keyword} || '%'
+			</if>
+		</where>
+	</select>
+	<!-- 상품 목록 -->
+	<select id="selectList" parameterType="map"
+	                                   resultType="eveVO">
+		SELECT
+		   *
+		FROM (SELECT 
+		        a.*,
+		        rownum rnum
+		      FROM(SELECT
+		      		  p.eve_num,
+		      		  p.eve_price,
+		      		  p.mem_num,
+		              p.eve_title,
+		              p.eve_date,
+		              p.eve_uploadfile1,
+		              p.eve_filename1,
+		              p.eve_uploadfile2,
+		              p.eve_filename2,
+		              p.eve_uploadfile3,
+		              p.eve_filename3,
+		              m.mem_id
+		           FROM eve p
+		           JOIN member m
+		           ON p.mem_num=m.mem_num
+		           <where>
+						<if test="keyword != ''">
+						p.eve_title LIKE '%' || #{keyword} || '%'
+						</if>
+					</where>
+		           ORDER BY p.eve_num DESC)a)
+    	<![CDATA[
+    	WHERE rnum >= #{start} AND rnum <= #{end}
+    	]]>
+	</select>
+	<!-- 판매자 정보 처리 -->
+	<!-- 총 레코드 수 -->
+	<select id="selectSellerRowCount" parameterType="map" resultType="integer">
+		SELECT
+		   COUNT(*)
+		FROM eve p 
+		WHERE mem_num = #{user_num}
+	</select>
+	<!-- 상품 목록 -->
+	<select id="selectSellerList" parameterType="map"
+	                                   resultType="eveVO">
+		SELECT
+		   *
+		FROM (SELECT 
+		        a.*,
+		        rownum rnum
+		      FROM(SELECT
+		      		 *
+		           FROM eve p
+		           WHERE mem_num = #{user_num}
+		           ORDER BY p.eve_num DESC)a)
+    	<![CDATA[
+    	WHERE rnum >= #{start} AND rnum <= #{end}
+    	]]>
+	</select>
+	
+	
+	<!-- 글 수정 -->
+	 <update id="updateEve" parameterType="eveVO">
+		UPDATE eve SET
+			<if test="eve_filename1 != ''">
+			eve_uploadfile1=#{eve_uploadfile1},
+			eve_filename1=#{eve_filename1},
+			</if>
+			<if test="eve_filename2 != ''">
+			eve_uploadfile2=#{eve_uploadfile2},
+			eve_filename2=#{eve_filename2},
+			</if>	
+			<if test="eve_filename3 != ''">
+			eve_uploadfile3=#{eve_uploadfile3},
+			eve_filename3=#{eve_filename3},
+			</if>		
+			eve_title=#{eve_title},
+			eve_tag=#{eve_tag},
+			eve_price=#{eve_price},
+			eve_content=#{eve_content},
+			eve_status=#{eve_status},
+			eve_buy=#{eve_buy}
+			<!-- modify_date=SYSDATE  -->
+		WHERE eve_num=#{eve_num}
+	</update> 
+	
+	<!-- 댓글 모록  -->
+	<select id="selectListReply" parameterType="map"
+ 	                     resultType="eveReplyVO">
+ 		SELECT
+ 		   *
+ 		FROM (SELECT 
+ 		        m.*, 
+ 		        rownum rnum 
+ 		      FROM (SELECT 
+                      *
+                    FROM (SELECT 
+                            rep_num,
+ 		                    rep_content,
+ 		                    TO_CHAR(rep_date,'YYYY-MM-DD HH24:MI:SS') rep_date,
+ 		                    eve_num,
+ 		                    mem_num
+                          FROM eve_reply where eve_num=#{eve_num}) r 
+                               JOIN member m
+                               ON r.mem_num = m.mem_num
+                               ORDER BY rep_num DESC)m)
+                              
+ 		<![CDATA[
+ 		WHERE rnum >= #{start} AND rnum <= #{end}
+ 		]]>                                 
+ 	</select>
+	
+	 
+</mapper>
+
+
+
+
+
+
+
